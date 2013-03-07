@@ -1,8 +1,8 @@
-package com.webcomrades.demo.test;
+package com.webcomrades.bankfinder.test;
 
 import android.test.AndroidTestCase;
 
-public class MyFirstTest extends AndroidTestCase {
+public class BankFinderTest extends AndroidTestCase {
 
 	public void doSomeTest() {
 		boolean init = true;

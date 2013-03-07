@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.webcomrades.demo"
+    package="com.webcomrades.bankfinder"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -10,17 +10,17 @@
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.webcomrades.demo" />
+        android:targetPackage="com.webcomrades.bankfinder" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/DemoTheme" >
+        android:theme="@style/BankFinderTheme" >
         <uses-library android:name="android.test.runner" />
 
         <activity
-            android:name="com.webcomrades.demo.MainActivity"
+            android:name="com.webcomrades.bankfinder.BankFinderActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

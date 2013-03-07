@@ -1,9 +1,9 @@
-package com.webcomrades.demo;
+package com.webcomrades.bankfinder;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+public class BankFinderActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

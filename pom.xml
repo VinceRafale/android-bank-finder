@@ -9,14 +9,14 @@
 		<version>7</version>
 	</parent>
 
-	<groupId>com.webcomrades.demo</groupId>
-	<artifactId>parent-android-demo</artifactId>
+	<groupId>com.webcomrades.bankfinder</groupId>
+	<artifactId>parent-android-bank-finder</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Android Demo (Parent)</name>
-	<description>Application that handles basic Android stuff.</description>
-	<url>https://github.com/josomers/android-demo</url>
+	<name>Android Bank Finder (Parent)</name>
+	<description>Android application to find a bank nearby.</description>
+	<url>https://github.com/josomers/android-bank-finder</url>
 	<inceptionYear>2013</inceptionYear>
 
 	<developers>
@@ -41,9 +41,9 @@
 	</licenses>
 
 	<scm>
-		<url>https://github.com/josomers/android-demo</url>
-		<connection>scm:git:git://github.com/josomers/android-demo.git</connection>
-		<developerConnection>scm:git:git@github.com:josomers/android-demo.git</developerConnection>
+		<url>https://github.com/josomers/android-bank-finder</url>
+		<connection>scm:git:git://github.com/josomers/android-bank-finder.git</connection>
+		<developerConnection>scm:git:git@github.com:josomers/android-bank-finder.git</developerConnection>
 		<tag>1.0</tag>
 	</scm>
 
@@ -60,7 +60,7 @@
 		<android-maven.version>3.5.1</android-maven.version>
 
 		<github.downloads.repositoryOwner>josomers</github.downloads.repositoryOwner>
-		<github.downloads.repositoryName>android-demo</github.downloads.repositoryName>
+		<github.downloads.repositoryName>android-bank-finder</github.downloads.repositoryName>
 	</properties>
 
 	<modules>

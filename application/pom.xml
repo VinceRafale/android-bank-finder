@@ -5,15 +5,15 @@
 
 	<parent>
 		<version>1.0-SNAPSHOT</version>
-		<groupId>com.webcomrades.demo</groupId>
-		<artifactId>parent-android-demo</artifactId>
+		<groupId>com.webcomrades.bankfinder</groupId>
+		<artifactId>parent-android-bank-finder</artifactId>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<packaging>apk</packaging>
-	<name>Android Demo (Project)</name>
-	<artifactId>project-android-demo</artifactId>
-	<url>https://github.com/josomers/android-demo</url>
+	<name>Android Bank Finder (Project)</name>
+	<artifactId>project-android-bank-finder</artifactId>
+	<url>https://github.com/josomers/android-bank-finder</url>
 
 	<dependencies>
 		<dependency>
