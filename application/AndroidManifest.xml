@@ -8,11 +8,15 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.webcomrades.bankfinder" />
 
     <application
+        android:name="com.webcomrades.bankfinder.BankFinder"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +24,7 @@
         <uses-library android:name="android.test.runner" />
 
         <activity
-            android:name="com.webcomrades.bankfinder.BankFinderActivity"
+            android:name="com.webcomrades.bankfinder.activity.BankFinderListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

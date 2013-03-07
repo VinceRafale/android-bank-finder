@@ -30,6 +30,16 @@
 				<role>developer</role>
 			</roles>
 		</developer>
+		<developer>
+			<name>Stijn Opheide</name>
+			<email>stijnopheide@gmail.com</email>
+			<id>stijnopheide</id>
+			<url>http://twitter.com/stijnopheide</url>
+			<timezone>1</timezone>
+			<roles>
+				<role>developer</role>
+			</roles>
+		</developer>
 	</developers>
 
 	<licenses>
@@ -85,6 +95,32 @@
 				<groupId>com.google.android</groupId>
 				<artifactId>support-v4</artifactId>
 				<version>${android-support.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.akquinet.android.androlog</groupId>
+				<artifactId>androlog</artifactId>
+				<version>1.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.10</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.android</groupId>
+				<artifactId>support-v4</artifactId>
+				<version>${android.support.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>1.3.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
