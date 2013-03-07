@@ -1,7 +1,7 @@
-Android Demo
+Bank Finder
 ============
 
-Repository for a demo Android application.
+Android application to find a bank nearby.
 
 
 Developed By
@@ -13,7 +13,6 @@ License
 =======
 
     Copyright 2013 Jo Somers
-    Copyright 2011 The Android Open Source Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
