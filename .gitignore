@@ -1,0 +1,7 @@
+.project
+.settings/org.eclipse.core.resources.prefs
+.settings/org.eclipse.m2e.core.prefs
+application/.project
+application/.settings/org.eclipse.core.resources.prefs
+application/.settings/org.eclipse.jdt.core.prefs
+application/.settings/org.eclipse.m2e.core.prefs
