@@ -1,8 +1,12 @@
 package com.webcomrades.bankfinder.activity;
 
-import com.google.analytics.tracking.android.EasyTracker;
-
 import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.google.analytics.tracking.android.EasyTracker;
+import com.webcomrades.bankfinder.BankFinder;
+import com.webcomrades.bankfinder.R;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -10,17 +14,34 @@ import android.app.Activity;
  */
 
 public abstract class BankFinderActivity extends Activity {
-
+	
+	protected MenuItem menuLoader;
+	protected boolean showRefreshing = false;
+	
 	@Override
 	public void onStart() {
 		super.onStart();
-		EasyTracker.getInstance().activityStart(this);
+		if (BankFinder.inProductionMode()) EasyTracker.getInstance().activityStart(this);
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
-		EasyTracker.getInstance().activityStop(this);
+		if (BankFinder.inProductionMode()) EasyTracker.getInstance().activityStop(this);
+	}
+	
+	protected void initMenuLoader(Menu menu) {
+		menuLoader = menu.findItem(R.id.menu_loader);
+		if(menuLoader != null) {
+			menuLoader.setVisible(showRefreshing);
+		}
+	}
+	
+	protected void showSpinnerInActionbar(boolean value) {
+		showRefreshing = value;
+		if(menuLoader != null) {
+			menuLoader.setVisible(value);
+		}
 	}
 
 }

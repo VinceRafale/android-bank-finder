@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/ListView_Banks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbarStyle="outsideOverlay" />
+
+    <TextView
+        android:id="@+id/TextView_Empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/tEmpty"
+        android:visibility="gone" />
+
+    <include layout="@layout/loading" />
+
+</LinearLayout>

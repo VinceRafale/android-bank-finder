@@ -23,15 +23,11 @@ public class DataFetcher {
 		public String handleResponse(InputStream input) throws IOException;
 	}
 
-	public DataFetcher() {
-
-	}
-
-	public String getFromServer(ResponseHandler responseHandler,
+	public static String getFromServer(ResponseHandler responseHandler,
 			String fullUrl, int connectTimeout, int readTimeout)
 			throws IOException {
 
-		Log.d(TAG, "get data from: " + fullUrl);
+		Log.v(TAG, "get data from: " + fullUrl);
 
 		URL url = new URL(fullUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -49,13 +45,9 @@ public class DataFetcher {
 
 			return responseHandler.handleResponse(new BufferedInputStream(
 					stream));
-		} catch (IOException e) {
-			ErrorController.getInstance().handleError(e);
 		} finally {
 			connection.disconnect();
 		}
-
-		return null;
 	}
 
 }

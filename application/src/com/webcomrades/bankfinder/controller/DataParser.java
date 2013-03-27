@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import com.webcomrades.bankfinder.model.Bank;
+import com.webcomrades.bankfinder.model.Brand;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -16,20 +17,28 @@ import com.webcomrades.bankfinder.model.Bank;
 
 public class DataParser {
 
-	public DataParser() {
-		
-	}
-	
-	public List<Bank> parseBanks(String data) {
+	public static List<Bank> parseBanks(String data) {
 		Gson gson = new GsonBuilder().create();
 		Type rootType = new TypeToken<List<Bank>>(){}.getType();
 		
 		List<Bank> banks = gson.fromJson(data, rootType);
-		if(banks == null) {
-			throw new JsonSyntaxException("Error while parsing data from JSON: " + data);
+		if (banks == null) {
+			throw new JsonSyntaxException("Error while parsing banks from JSON: " + data);
 		}
 		
 		return banks;
+	}
+	
+	public static List<Brand> parseBrands(String data) {
+		Gson gson = new GsonBuilder().create();
+		Type rootType = new TypeToken<List<Brand>>(){}.getType();
+		
+		List<Brand> brands = gson.fromJson(data, rootType);
+		if (brands == null) {
+			throw new JsonSyntaxException("Error while parsing brands from JSON: " + data);
+		}
+		
+		return brands;
 	}
 	
 }

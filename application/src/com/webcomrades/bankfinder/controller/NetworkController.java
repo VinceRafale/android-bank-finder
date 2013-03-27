@@ -6,8 +6,10 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
+import com.webcomrades.bankfinder.BankFinderGlobals;
 import com.webcomrades.bankfinder.controller.DataFetcher.ResponseHandler;
 import com.webcomrades.bankfinder.model.Bank;
+import com.webcomrades.bankfinder.model.Brand;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -16,24 +18,33 @@ import com.webcomrades.bankfinder.model.Bank;
 
 public class NetworkController {
 
-	private static int connectTimeOut = 10000;
-	private static int readTimeOut = 30000;
+	private final static int mConnectTimeOut = 10000;
+	private final static int mReadTimeOut = 30000;
 	
-	private DataFetcher dataFetcher;
-	private DataParser dataParser;
-	
-	public NetworkController() {
-		this.dataParser = new DataParser();
-		this.dataFetcher = new DataFetcher();
+	private static String getUrl(String path) {
+		return BankFinderGlobals.HTTP + BankFinderGlobals.getBaseUrl() + BankFinderGlobals.API + path;
 	}
 	
-	public List<Bank> getBanksFromServer(String path) throws IOException {
-		return dataParser.parseBanks(dataFetcher.getFromServer(new ResponseHandler() {
+	public static List<Bank> getBanksFromServer() throws IOException {
+		String url = getUrl(BankFinderGlobals.PATH_BANK);
+				
+		return DataParser.parseBanks(DataFetcher.getFromServer(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
 			}
-		}, path, connectTimeOut, readTimeOut));
+		}, url, mConnectTimeOut, mReadTimeOut));
+	}
+	
+	public static List<Brand> getBrandsFromServer() throws IOException {
+		String url = getUrl(BankFinderGlobals.PATH_BRAND);
+		
+		return DataParser.parseBrands(DataFetcher.getFromServer(new ResponseHandler() {
+			@Override
+			public String handleResponse(InputStream input) throws IOException {
+				return IOUtils.toString(input);
+			}
+		}, url, mConnectTimeOut, mReadTimeOut));
 	}
 	
 }
