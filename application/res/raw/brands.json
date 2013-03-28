@@ -1,0 +1,34 @@
+[
+	{
+		"id": "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "BNP Paribas Fortis",
+		"icon" : {
+			"url" : "/images/",
+			"fileName" : "bnp.png"
+		}
+	},
+	{
+		"id": "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Belfius",
+		"icon" : {
+			"url" : "/images/",
+			"fileName" : "belfius.png"
+		}
+	},
+	{
+		"id": "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "ING",
+		"icon" : {
+			"url" : "/images/",
+			"fileName" : "ing.png"
+		} 
+	},
+	{
+		"id": "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC",
+		"icon" : {
+			"url" : "/images/",
+			"fileName" : "kbc.png"
+		}
+	}
+]

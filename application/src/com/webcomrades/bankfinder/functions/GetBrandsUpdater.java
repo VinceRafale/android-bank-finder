@@ -1,6 +1,5 @@
 package com.webcomrades.bankfinder.functions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -21,7 +20,7 @@ public enum GetBrandsUpdater {
 
             @Override
             protected List<Brand> doInBackground(Void... params) {
-            	List<Brand> mBrands = new ArrayList<Brand>();
+            	List<Brand> mBrands = null;
 
                 try {
                     mBrands = NetworkController.getBrandsFromServer();

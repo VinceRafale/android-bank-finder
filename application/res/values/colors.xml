@@ -1,0 +1,9 @@
+<resources>
+
+    <color name="normal">#ffffff</color>
+	<color name="inverse">#f9f9f9</color>
+	<color name="pressed">#f3f3f3</color>
+	
+	<color name="activity">@color/normal</color>
+	
+</resources>

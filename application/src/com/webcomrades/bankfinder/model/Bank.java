@@ -15,10 +15,10 @@ public class Bank {
 	public String brandId;
 	public String name;
 	public String address;
-	public String additionalInfo;
 
 	public Bank() {
 		this.id = UUID.randomUUID().toString();
+		this.brandId = "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7"; // bnp
 	}
 	
 	public Bank(String name, String address, String additionalInfo) {

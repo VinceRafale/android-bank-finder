@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <Spinner
+        android:id="@+id/Spinner_Brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|left" />
+
+    <EditText
+        android:id="@+id/EditText_BankName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tHintBankName"
+        android:inputType="textMultiLine"
+        android:maxLength="75"
+        android:minWidth="100dp"
+        android:textSize="@dimen/font_size_normal" />
+
+    <EditText
+        android:id="@+id/EditText_BankAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tHintBankAddress"
+        android:inputType="textMultiLine"
+        android:maxLength="75"
+        android:textSize="@dimen/font_size_normal" />
+
+    <Button
+        android:id="@+id/Button_Submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/tSubmit"
+        android:textSize="@dimen/font_size_normal" />
+
+</LinearLayout>

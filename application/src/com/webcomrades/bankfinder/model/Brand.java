@@ -16,5 +16,10 @@ public class Brand {
 	public Brand() {
 		this.id = UUID.randomUUID().toString();
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 		
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
+import com.google.gson.Gson;
 import com.webcomrades.bankfinder.BankFinderGlobals;
 import com.webcomrades.bankfinder.controller.DataFetcher.ResponseHandler;
 import com.webcomrades.bankfinder.model.Bank;
@@ -45,6 +46,17 @@ public class NetworkController {
 				return IOUtils.toString(input);
 			}
 		}, url, mConnectTimeOut, mReadTimeOut));
+	}
+
+	public static Bank postBankToServer(Bank mBank) throws IOException {
+		String url = getUrl(BankFinderGlobals.PATH_BANK);
+		
+		return DataParser.parseBank(DataFetcher.postToServer(new ResponseHandler() {
+			@Override
+			public String handleResponse(InputStream input) throws IOException {
+				return IOUtils.toString(input);
+			}
+		}, url, mConnectTimeOut, mReadTimeOut, new Gson().toJson(mBank)));
 	}
 	
 }

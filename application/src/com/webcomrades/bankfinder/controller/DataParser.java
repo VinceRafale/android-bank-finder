@@ -17,6 +17,18 @@ import com.webcomrades.bankfinder.model.Brand;
 
 public class DataParser {
 
+	public static Bank parseBank(String data) {
+		Gson gson = new GsonBuilder().create();
+		Type rootType = new TypeToken<Bank>(){}.getType();
+		
+		Bank bank = gson.fromJson(data, rootType);
+		if (bank == null) {
+			throw new JsonSyntaxException("Error while parsing bank from JSON: " + data);
+		}
+		
+		return bank;
+	}
+	
 	public static List<Bank> parseBanks(String data) {
 		Gson gson = new GsonBuilder().create();
 		Type rootType = new TypeToken<List<Bank>>(){}.getType();
@@ -40,5 +52,5 @@ public class DataParser {
 		
 		return brands;
 	}
-	
+
 }

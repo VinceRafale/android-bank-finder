@@ -1,0 +1,272 @@
+[
+	{
+		"id": "28905788-92fc-4682-84df-cbe102c11de4",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Aartselaar",
+		"address" : "Laar 12, 2630 Aartselaar"
+	},
+	{
+		"id": "80cb9084-eb3a-4f1a-9089-4d254252dacc",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Antwerpen-Amerikalei",
+		"address" : "Amerikalei 164, 2000 Antwerpen"
+	},
+	{
+		"id": "407ecde9-5406-4e4e-ba5f-f182a3de0e9d",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Antwerpen-Gerechtshof",
+		"address" : "Amerikalei 1, 2000 Antwerpen"
+	},
+	{
+		"id": "4a1b4bea-b5f8-4a6c-a9b7-7af1f83caa03",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Antwerpen-Haven",
+		"address" : "Londenstraat 58, 2000 Antwerpen"
+	},
+	{
+		"id": "a9e6e1ba-a9e9-4c52-841c-392002769bb9",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Antwerpen-Meir",
+		"address" : "Meir 48, 2000 Antwerpen"
+	},
+	{
+		"id": "25994f66-80a0-4d4c-bfaa-473a97924c82",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Borsbeek",
+		"address" : "De Robianostraat 26, 2150 Borsbeek"
+	},
+	{
+		"id": "5999f00b-a7b8-468b-84d3-b7b039471572",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Dessel",
+		"address" : "Lorzeplein 3, 2480 Dessel"
+	},
+	{
+		"id": "1da059fc-b7f5-465d-8d01-b6282cc4342b",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Deurne-Centrum",
+		"address" : "Te Couwelaarlei 128, 2100 Deurne"
+	},
+	{
+		"id": "48772963-539c-450f-ae76-45f1a0bacf0b",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Borgerhout-Stenenbrug",
+		"address" : "Stenenbrug 165, 2140 Borgerhout"
+	},
+	{
+		"id": "f68512ed-557a-4bbb-b876-d12c060cdd3c",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Ekeren",
+		"address" : "Markt 1, 2180 Ekeren"
+	},
+	{
+		"id": "2fb28bf1-f460-45e5-91b7-fce007a6ab73",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Ekeren-Mariaburg",
+		"address" : "Kapelsesteenweg 561, 2180 Ekeren"
+	},
+	{
+		"id": "5ec0f6a3-cd2b-4570-8be7-c44ea7d140d5",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Ranst",
+		"address" : "Lievevrouwestraat 54, 2520 Ranst"
+	},
+	{
+		"id": "3eea3cd2-35ac-438f-8c24-133156a3ea7c",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Vorselaar",
+		"address" : "Kerkstraat 6, 2290 Vorselaar"
+	},
+	{
+		"id": "729709c8-4ffe-445f-847f-5e8283ead99b",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Weelde",
+		"address" : "Koning Albertstraat 93, 2381 Weelde"
+	},
+	{
+		"id": "3d2d8325-950f-448b-a069-d140c30daec4",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Wommelgem",
+		"address" : "Sint-Damiaanstraat 24, 2160 Wommelgem"
+	},
+	{
+		"id": "22abfd80-7a17-4db1-ba4b-427c877209b3",
+		"brandId" : "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7",
+		"name" : "Kantoor Wijnegem",
+		"address" : "Turnhoutsebaan 362-264, 2110 Wijnegem"
+	},
+	{
+		"id": "158b20ed-3128-4c03-a9e6-9762568b2d91",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Antw-Metropool",
+		"address" : "Lange Gasthuisstraat 20, 2000 Antwerpen"
+	},
+	{
+		"id": "d2cd08f4-36f5-4b27-af6e-30204fdf7e8b",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Antw-Mechelsesteenw",
+		"address" : "Mechelsesteenweg 34, 2018 Antwerpen"
+	},
+	{
+		"id": "54aa8bc8-2115-448e-a81f-71b0650a44d2",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Antwerpen-De Keyser",
+		"address" : "Quellinstraat 1, 2018 Antwerpen"
+	},
+	{
+		"id": "c1d3702c-45a2-427d-89e4-b1f1e35652fc",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Antw-Haven",
+		"address" : "Noorderplaats 7, 2000 Antwerpen"
+	},
+	{
+		"id": "c28d9152-041f-4c77-9379-c8f324660c57",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Privalis Antwerpen",
+		"address" : "Bolivarplaats 20, 2000 Antwerpen"
+	},
+	{
+		"id": "31c4a837-9fe9-4514-8706-d262c0d53624",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Wommelgem",
+		"address" : "Kerkplaats 30, 2160 Wommelgem"
+	},
+	{
+		"id": "9dd3e63f-3bd2-43f4-aa08-15d0aabe38c4",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Bvba D&D Finance",
+		"address" : "Marktplein 1, 2110 Wijnegem"
+	},
+	{
+		"id": "4887220e-6650-4844-92c2-2d2cada88901",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Deurne Zuid",
+		"address" : "Herentalsebaan 331, 2100 Deurne"
+	},
+	{
+		"id": "373fc2ea-30e0-428c-bfdb-aa6d623ee972",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Deurne Noord",
+		"address" : "Ruggeveldlaan 748, 2100 Deurne"
+	},
+	{
+		"id": "01a69025-cd4a-430e-aec6-14e1a1483967",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Nv Sgravenwesele",
+		"address" : "Wijnegemsesteenweg 40, 2970 's Gravenwezel"
+	},
+	{
+		"id": "1aac4226-ff73-4b04-b3f9-7c686bef54ef",
+		"brandId" : "453467ab-14c0-4bf0-a12b-530a2247cf08",
+		"name" : "Philippe Rosquin",
+		"address" : "Frank Craeybeckxlaan 25, 2100 Deurne"
+	},
+	{
+		"id": "d46723ae-9a87-4d85-ba20-eb35c05ede42",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Antwerpen Lange Gasthuis",
+		"address" : "Lange Gasthuisstraat 22, 2000 Antwerpen"
+	},
+	{
+		"id": "8c7b565f-c6db-4cc2-aaa3-13cdecd90afa",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Antwerpen St Andries",
+		"address" : "Nationalestraat 124 B, 2000 Antwerpen"
+	},
+	{
+		"id": "46cf2a17-34c2-45a5-bc8a-2fd655524c25",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Antwerpen Van Rijswijck",
+		"address" : "Jan Van Rijswijcklaan 62, 2018 Antwerpen"
+	},
+	{
+		"id": "99f031d1-b150-412d-ac8c-de3f9e94fda2",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Antwerpen Plantin",
+		"address" : "Plantin en moretuslei 118, 2018 Antwerpen"
+	},
+	{
+		"id": "1a1e1d97-9926-4d83-b993-80bf52c447b4",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Borgerhout",
+		"address" : "Turnhoutsebaan 63, 2140 Borgerhout"
+	},
+	{
+		"id": "1e0a9731-ebed-40a0-a309-10f55a6126a4",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Wommelgem",
+		"address" : "Kerkplaats 6, 2160 Wommelgem"
+	},
+	{
+		"id": "db403899-18c5-4376-9ee1-19e89eaecd14",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Boechout",
+		"address" : "Van Colenstraat 14, 2530 Boechout"
+	},
+	{
+		"id": "13e8f7f4-48f8-4341-92b9-535bb29f58d4",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Borsbeek",
+		"address" : "De Robianostraat 4, 2150 Borsbeek"
+	},
+	{
+		"id": "73eb4fd4-6516-4d60-8569-42563db73d56",
+		"brandId" : "bcf3ba2a-88b9-4aa1-ba74-931ac20d01f3",
+		"name" : "Wijnegem",
+		"address" : "Turnhoutsebaan 355, 2110 Wijnegem"
+	},
+	{
+		"id": "668298df-bfde-47e9-8d88-c8b5e696d1a7",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC BC Antwerpen Noord",
+		"address" : "Noorderlaan 119 b4, 2000 Antwerpen"
+	},
+	{
+		"id": "0f4af433-adaf-4169-b985-39e6190e2d97",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC Bank Antwerpen Centrum",
+		"address" : "Eiermarkt 20, 2000 Antwerpen"
+	},
+	{
+		"id": "4bad1434-65fe-47a9-b0b5-7165121ae666",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC Bank Antwerpen Plantin&Moretus",
+		"address" : "Plantin en moretuslei 220, 2018 Antwerpen"
+	},
+	{
+		"id": "77ff824b-f801-4581-b71a-fc24a1499452",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC Bank Antwerpen Haven",
+		"address" : "Brouwersvliet 39, 2000 Antwerpen"
+	},
+	{
+		"id": "37937da7-82e7-40e5-b82f-de8b32212910",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC Bank Antwerpen Amerikalei",
+		"address" : "Amerikalei 189, 2000 Antwerpen"
+	},
+	{
+		"id": "baab8795-ddd8-4677-90f7-235dc5798308",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC Bank Borgerhout-Gitsch.",
+		"address" : "Gitschotellei 211, 2140 Borgerhout"
+	},
+	{
+		"id": "ddc6673b-e8fa-4dc1-933d-39f7bc6bba51",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC Bank Wommelgem",
+		"address" : "Kerkplaats 26, 2160 Wommelgem"
+	},
+	{
+		"id": "4729fbd6-efdb-465f-aa28-d782b1b1b740",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "Verzekeringskantoor Erik Laenen",
+		"address" : "Corluystraat 44, 2160 Wommelgem"
+	},
+	{
+		"id": "601668af-480c-407f-ba02-dc988ea73990",
+		"brandId" : "a93f5249-3578-486f-adff-0d9d077ed909",
+		"name" : "KBC BC Mechelen",
+		"address" : "Zwartzustersvest 24C, 2800 Mechelen"
+	}
+]

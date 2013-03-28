@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- app config -->
     <string name="app_name">Bank Finder</string>
 
+    <!-- activities -->
+    <string name="tBankNew">Add a new bank</string>
+    <string name="tBankDetail">Bank detail</string>
+
+    <!-- form -->
+    <string name="tHintBankName">Name</string>
+    <string name="tHintBankAddress">Address</string>
+    <string name="tSubmit">Submit</string>
+
+    <!-- other -->
     <string name="tRefresh">Refresh</string>
-    <string name="tAddBank">Add a new bank</string>
-    <string name="tRefreshLoading">Loading&#8230;</string>
+    <string name="tRefreshLoading">Loading</string>
     <string name="tEmpty">Oops. Nothing to see here.</string>
-    
+    <string name="tEmptyDetail">Euh. Looking for someting ?</string>
+	<string name="tError">Oops. Something went wrong!</string>
 </resources>

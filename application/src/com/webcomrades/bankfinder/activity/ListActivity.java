@@ -1,19 +1,22 @@
 package com.webcomrades.bankfinder.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.adapter.BankAdapter;
@@ -27,7 +30,7 @@ import com.webcomrades.bankfinder.model.Bank;
  * @since 2013
  */
 
-public class BankFinderListActivity extends BankFinderActivity {
+public class ListActivity extends BankFinderActivity implements OnItemClickListener {
 
 	private BankAdapter mBankAdapter;
 	private ListView mListView;
@@ -37,12 +40,13 @@ public class BankFinderListActivity extends BankFinderActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banklist);
+        setContentView(R.layout.activity_list);
         
         mBankAdapter = new BankAdapter(this, BankManager.getInstance().getBanks(), BankFinder.getImageViewController());
         
         mListView = (ListView) findViewById(R.id.ListView_Banks);
         mListView.setAdapter(mBankAdapter);
+        mListView.setOnItemClickListener(this);
         
         mEmptyView = (TextView) findViewById(R.id.TextView_Empty);
         mEmptyView.setVisibility(View.GONE);
@@ -51,12 +55,14 @@ public class BankFinderListActivity extends BankFinderActivity {
         mLoadingView.setVisibility(View.VISIBLE);
         
         refresh();
+        
+        Log.i("BankFinderListActivity" , BankFinder.getBrandsManager().getBrands().values().toString());
     }
-    
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu_banklist, menu);
+		inflater.inflate(R.menu.menu_list, menu);
 		initMenuLoader(menu);
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -67,7 +73,7 @@ public class BankFinderListActivity extends BankFinderActivity {
 			refresh();
 			return true;
 		} else if (item.getItemId() == R.id.menu_add) {
-			startActivity(new Intent(this, BankFinderAddNewBankActivity.class));
+			startActivity(new Intent(this, NewActivity.class));
 			return true;
 		} else {
 			return super.onOptionsItemSelected(item);
@@ -86,7 +92,7 @@ public class BankFinderListActivity extends BankFinderActivity {
 
             @Override
             protected List<Bank> doInBackground(Void... params) {
-            	List<Bank> mBanks = new ArrayList<Bank>();
+            	List<Bank> mBanks = null;
 
                 try {
                     mBanks = NetworkController.getBanksFromServer();
@@ -110,5 +116,12 @@ public class BankFinderListActivity extends BankFinderActivity {
             }
         }.execute();
 	}
-    	
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent bankDetailIntent = new Intent(this, DetailActivity.class);
+		bankDetailIntent.putExtra("bank", new Gson().toJson(mBankAdapter.getItem(position)));
+		startActivity(bankDetailIntent);
+	}
+	    	
 }

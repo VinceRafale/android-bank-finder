@@ -25,7 +25,7 @@ public class BankFinder extends Application {
 	public void onCreate() {
 		super.onCreate();
 		
-		mImageViewController = new ImageViewController(getApplicationContext(), BankFinderGlobals.getBaseUrl());
+		mImageViewController = new ImageViewController(getApplicationContext(), BankFinderGlobals.HTTP + BankFinderGlobals.getBaseUrl());
 		mBrandsManager = new BrandManager(getApplicationContext());
 				
 		saveVersionCode();
