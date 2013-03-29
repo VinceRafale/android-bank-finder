@@ -7,8 +7,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.apache.http.client.HttpResponseException;
-
 import de.akquinet.android.androlog.Log;
 
 /**
@@ -37,12 +35,6 @@ public class DataFetcher {
 		
 		try {
 			InputStream stream = connection.getInputStream();
-
-			if (connection.getResponseCode() >= 400) {
-				throw new HttpResponseException(connection.getResponseCode(),
-						connection.getResponseMessage());
-			}
-
 			return responseHandler.handleResponse(new BufferedInputStream(stream));
 		} finally {
 			connection.disconnect();
@@ -61,19 +53,12 @@ public class DataFetcher {
 		connection.setDoOutput(true);
 		connection.setDoInput(true);
 		connection.setUseCaches(false);
-		connection.setChunkedStreamingMode(0);
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "application/json"); 
 		connection.setRequestProperty("charset", "utf-8");
 
 		try {
 			DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
-
-//			if (connection.getResponseCode() >= 400) {
-//				throw new HttpResponseException(connection.getResponseCode(),
-//						connection.getResponseMessage());
-//			}
-			
 			outputStream.writeBytes(body);
 			outputStream.flush();
 			outputStream.close();

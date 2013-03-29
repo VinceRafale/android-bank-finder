@@ -20,9 +20,7 @@ import com.google.gson.Gson;
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.adapter.BankAdapter;
-import com.webcomrades.bankfinder.controller.BankManager;
 import com.webcomrades.bankfinder.controller.ErrorHandler;
-import com.webcomrades.bankfinder.controller.NetworkController;
 import com.webcomrades.bankfinder.model.Bank;
 
 /**
@@ -36,13 +34,13 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
 	private ListView mListView;
 	private TextView mEmptyView;
 	private LinearLayout mLoadingView;
-	
+		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         
-        mBankAdapter = new BankAdapter(this, BankManager.getInstance().getBanks(), BankFinder.getImageViewController());
+        mBankAdapter = new BankAdapter(this, BankFinder.getImageViewController());
         
         mListView = (ListView) findViewById(R.id.ListView_Banks);
         mListView.setAdapter(mBankAdapter);
@@ -95,7 +93,7 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
             	List<Bank> mBanks = null;
 
                 try {
-                    mBanks = NetworkController.getBanksFromServer();
+                    mBanks = BankFinder.getNetworkController().getBanksFromServer();
                 } catch (Exception e) {
                     exception = e;
                 }

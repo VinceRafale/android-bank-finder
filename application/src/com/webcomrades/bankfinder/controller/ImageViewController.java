@@ -21,8 +21,7 @@ public class ImageViewController {
 		this.mContext = context;
 		this.mBaseUrl = baseUrl;
 
-		ActivityManager am = (ActivityManager) context
-				.getSystemService(Context.ACTIVITY_SERVICE);
+		ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 		int memClass = am.getMemoryClass();
 
 		final int memoryCacheSize = 1024 * 1024 * memClass / 8;

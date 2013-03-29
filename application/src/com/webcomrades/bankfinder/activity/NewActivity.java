@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.google.analytics.tracking.android.Log;
+import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.controller.ErrorHandler;
-import com.webcomrades.bankfinder.controller.NetworkController;
 import com.webcomrades.bankfinder.model.Bank;
 
 public class NewActivity extends BankFinderActivity {
@@ -31,11 +31,7 @@ public class NewActivity extends BankFinderActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
-        
-        mNewBank = new Bank();
-        
-        Log.w("new bank id: " + mNewBank.id); //TODO remove this!
-        
+
         mBrandSpinner = (Spinner) findViewById(R.id.Spinner_Brand);
         mBankName = (EditText) findViewById(R.id.EditText_BankName);
         mBankAddress = (EditText) findViewById(R.id.EditText_BankAddress);
@@ -53,8 +49,14 @@ public class NewActivity extends BankFinderActivity {
 		String name = mBankName.getText().toString();
 		String address = mBankAddress.getText().toString();
 		
-		mNewBank.name = (!name.isEmpty()) ? name : "";
-		mNewBank.address = (!address.isEmpty()) ? address : "";
+		if (mNewBank == null) {
+			mNewBank = new Bank(name, address);
+		}
+		
+		Log.w("new bank id: " + mNewBank.id); //TODO remove this!
+		
+		//mNewBank.name = (!name.isEmpty()) ? name : "";
+		//mNewBank.address = (!address.isEmpty()) ? address : "";
 
         new AsyncTask<Bank, Void, Bank>() {
             private Exception exception = null;
@@ -71,7 +73,7 @@ public class NewActivity extends BankFinderActivity {
             	Bank mBank = null;
 
                 try {
-                	mBank = NetworkController.postBankToServer(mNewBank[0]);
+                	mBank = BankFinder.getNetworkController().postBankToServer(mNewBank[0]);
                 } catch (Exception e) {
                     exception = e;
                 }
@@ -83,10 +85,6 @@ public class NewActivity extends BankFinderActivity {
             protected void onPostExecute(Bank mBank) {
                 if (exception != null) {
                 	ErrorHandler.getInstance().handleError(getApplicationContext(), exception, true);
-                }
-                
-                if (mBank != null) {
-                	Log.w("yeeha " + mBank.id);
                 }
                 
         		mSubmitButton.setEnabled(true);

@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 
 import com.google.gson.Gson;
-import com.webcomrades.bankfinder.BankFinderGlobals;
 import com.webcomrades.bankfinder.controller.DataFetcher.ResponseHandler;
 import com.webcomrades.bankfinder.model.Bank;
 import com.webcomrades.bankfinder.model.Brand;
@@ -19,15 +18,26 @@ import com.webcomrades.bankfinder.model.Brand;
 
 public class NetworkController {
 
-	private final static int mConnectTimeOut = 10000;
-	private final static int mReadTimeOut = 30000;
+	private final int mConnectTimeOut;
+	private final int mReadTimeOut;
+	private final String mBaseUrl;
+	private final String mBankPath;
+	private final String mBrandPath;
 	
-	private static String getUrl(String path) {
-		return BankFinderGlobals.HTTP + BankFinderGlobals.getBaseUrl() + BankFinderGlobals.API + path;
+	public NetworkController(String baseUrl, String bankPath, String brandPath, int timeout, int readtimeout) {
+		this.mConnectTimeOut = timeout;
+		this.mReadTimeOut = readtimeout;
+		this.mBaseUrl = baseUrl;
+		this.mBankPath = bankPath;
+		this.mBrandPath = brandPath;
 	}
 	
-	public static List<Bank> getBanksFromServer() throws IOException {
-		String url = getUrl(BankFinderGlobals.PATH_BANK);
+	private String getUrl(String path) {
+		return mBaseUrl + path;
+	}
+	
+	public List<Bank> getBanksFromServer() throws IOException {
+		String url = getUrl(mBankPath);
 				
 		return DataParser.parseBanks(DataFetcher.getFromServer(new ResponseHandler() {
 			@Override
@@ -37,8 +47,8 @@ public class NetworkController {
 		}, url, mConnectTimeOut, mReadTimeOut));
 	}
 	
-	public static List<Brand> getBrandsFromServer() throws IOException {
-		String url = getUrl(BankFinderGlobals.PATH_BRAND);
+	public List<Brand> getBrandsFromServer() throws IOException {
+		String url = getUrl(mBrandPath);
 		
 		return DataParser.parseBrands(DataFetcher.getFromServer(new ResponseHandler() {
 			@Override
@@ -48,8 +58,8 @@ public class NetworkController {
 		}, url, mConnectTimeOut, mReadTimeOut));
 	}
 
-	public static Bank postBankToServer(Bank mBank) throws IOException {
-		String url = getUrl(BankFinderGlobals.PATH_BANK);
+	public Bank postBankToServer(Bank mBank) throws IOException {
+		String url = getUrl(mBankPath);
 		
 		return DataParser.parseBank(DataFetcher.postToServer(new ResponseHandler() {
 			@Override

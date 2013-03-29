@@ -24,17 +24,14 @@ import com.webcomrades.bankfinder.model.Brand;
 
 public class BankAdapter extends BaseAdapter {
 	
-	private final static int EVEN = 0;
-	private final static int UNEVEN = 1;
-	
 	private final Context mContext;
 	private final ImageViewController mImageViewController;
 	private List<Bank> mBanks;
 	private ViewHolder mViewHolder;
 	
-	public BankAdapter(Context context, List<Bank> banks, ImageViewController imageViewController) {
+	public BankAdapter(Context context, ImageViewController imageViewController) {
 		this.mContext = context;
-		this.mBanks = new ArrayList<Bank>(banks);
+		this.mBanks = new ArrayList<Bank>();
 		this.mImageViewController = imageViewController;
 	}
 	
@@ -58,9 +55,12 @@ public class BankAdapter extends BaseAdapter {
 		return position;
 	}
 
+	/**
+	 * Use altering background colors for rows.
+	 */
 	@Override
 	public int getItemViewType(int position) {
-		return position%2 == 0 ? EVEN : UNEVEN;
+		return position%2;
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class BankAdapter extends BaseAdapter {
 		}
 
 		switch (viewType) {
-		case EVEN:
+		case 0:
 			mViewHolder.mListItem.setBackground(mContext.getResources().getDrawable(R.drawable.list_item_background_normal));
 			break;
 		default:

@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.controller.ErrorHandler;
-import com.webcomrades.bankfinder.controller.NetworkController;
 import com.webcomrades.bankfinder.model.Brand;
 
 public enum GetBrandsUpdater {
@@ -23,7 +22,7 @@ public enum GetBrandsUpdater {
             	List<Brand> mBrands = null;
 
                 try {
-                    mBrands = NetworkController.getBrandsFromServer();
+                    mBrands = BankFinder.getNetworkController().getBrandsFromServer();
                 } catch (Exception e) {
                     exception = e;
                 }
