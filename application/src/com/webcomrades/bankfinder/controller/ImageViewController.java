@@ -6,7 +6,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.webcomrades.bankfinder.functions.GetUrlForIcon;
+import com.webcomrades.bankfinder.function.GetUrlForIcon;
 import com.webcomrades.bankfinder.model.Icon;
 import com.webimageloader.ImageLoader;
 import com.webimageloader.ext.ImageHelper;

@@ -29,8 +29,8 @@ public class DataController {
 		this.mDataFetcher = dataFetcher;
 	}
 	
-	public List<Bank> getBanksFromServer() throws IOException {	
-		return DataParser.parseBanks(mDataFetcher.getFromServer(new ResponseHandler() {
+	public List<Bank> getBanks() throws IOException {	
+		return DataParser.parseBanks(mDataFetcher.get(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
@@ -38,8 +38,8 @@ public class DataController {
 		}, mBankPath));
 	}
 	
-	public List<Brand> getBrandsFromServer() throws IOException {
-		return DataParser.parseBrands(mDataFetcher.getFromServer(new ResponseHandler() {
+	public List<Brand> getBrands() throws IOException {
+		return DataParser.parseBrands(mDataFetcher.get(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
@@ -47,13 +47,13 @@ public class DataController {
 		}, mBrandPath));
 	}
 
-	public Bank postBankToServer(Bank mBank) throws IOException {
-		return DataParser.parseBank(mDataFetcher.postToServer(new ResponseHandler() {
+	public Bank postBank(Bank mNewBank) throws IOException {
+		return DataParser.parseBank(mDataFetcher.post(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
 			}
-		}, mBankPath, new Gson().toJson(mBank)));
+		}, mBankPath, new Gson().toJson(mNewBank)));
 	}
 	
 }

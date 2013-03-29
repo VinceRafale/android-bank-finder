@@ -7,8 +7,8 @@ import java.util.Map;
 
 import android.content.Context;
 
-import com.webcomrades.bankfinder.functions.BrandsInSharedPreferences;
-import com.webcomrades.bankfinder.functions.GetBrandsFromApplicationSettings;
+import com.webcomrades.bankfinder.function.BrandsInSharedPreferences;
+import com.webcomrades.bankfinder.function.GetBrandsFromApplicationSettings;
 import com.webcomrades.bankfinder.model.Brand;
 
 /**

@@ -1,4 +1,4 @@
-package com.webcomrades.bankfinder.functions;
+package com.webcomrades.bankfinder.function;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,7 +19,7 @@ public enum GetBrandsFromDevice {
 	F;
 	
 	public List<Brand> apply(Context context) throws NotFoundException, IOException {
-		return GetBrandFromRaw(context, R.raw.brands);
+		return GetBrandFromRaw(context, R.raw.brand);
 	}
 	
 	private List<Brand> GetBrandFromRaw(Context context, int rawResourceId) throws NotFoundException, IOException {

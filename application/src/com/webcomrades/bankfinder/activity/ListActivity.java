@@ -93,7 +93,7 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
             	List<Bank> mBanks = null;
 
                 try {
-                    mBanks = BankFinder.getNetworkController().getBanksFromServer();
+                    mBanks = BankFinder.getNetworkController().getBanks();
                 } catch (Exception e) {
                     exception = e;
                 }

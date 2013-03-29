@@ -11,7 +11,7 @@ import com.webcomrades.bankfinder.controller.DataController;
 import com.webcomrades.bankfinder.controller.ErrorHandler;
 import com.webcomrades.bankfinder.controller.ImageViewController;
 import com.webcomrades.bankfinder.datafetcher.HttpURLDataFetcher;
-import com.webcomrades.bankfinder.functions.GetBrandsUpdater;
+import com.webcomrades.bankfinder.function.GetBrandsUpdater;
 
 /**
  * @author Jo Somers - sayhello@josomers.be

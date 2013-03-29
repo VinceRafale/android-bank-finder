@@ -9,8 +9,8 @@ public interface DataFetcher {
 		public String handleResponse(InputStream input) throws IOException;
 	}
 	
-	public String getFromServer(ResponseHandler responseHandler, String location) throws IOException;
+	public String get(ResponseHandler responseHandler, String location) throws IOException;
 	
-	public String postToServer(ResponseHandler responseHandler, String location, String body) throws IOException;
+	public String post(ResponseHandler responseHandler, String location, String body) throws IOException;
 
 }

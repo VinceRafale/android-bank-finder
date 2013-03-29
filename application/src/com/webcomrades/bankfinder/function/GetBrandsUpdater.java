@@ -1,4 +1,4 @@
-package com.webcomrades.bankfinder.functions;
+package com.webcomrades.bankfinder.function;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public enum GetBrandsUpdater {
             	List<Brand> mBrands = null;
 
                 try {
-                    mBrands = BankFinder.getNetworkController().getBrandsFromServer();
+                    mBrands = BankFinder.getNetworkController().getBrands();
                 } catch (Exception e) {
                     exception = e;
                 }

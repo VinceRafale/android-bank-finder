@@ -22,7 +22,7 @@ public class BankFinderGlobals {
 	private static final String BASE_URL_PROD = "banker.playground.webcomrad.es";
 	private static final String BASE_URL_DEV = "banker.playground.webcomrad.es"; 
 	
-	public static final String PATH_BANK = "/banks";
+	public static final String PATH_BANK = "/bank";
 	public static final String PATH_BRAND = "/brand";
 	
 	// shared preferences

@@ -1,4 +1,4 @@
-package com.webcomrades.bankfinder.functions;
+package com.webcomrades.bankfinder.function;
 
 import java.io.IOException;
 import java.util.List;

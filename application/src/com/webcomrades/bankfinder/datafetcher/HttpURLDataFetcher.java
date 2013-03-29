@@ -29,7 +29,7 @@ public class HttpURLDataFetcher implements DataFetcher {
 	}
 	
 	@Override
-	public String getFromServer(ResponseHandler responseHandler, String location) throws IOException {
+	public String get(ResponseHandler responseHandler, String location) throws IOException {
 		String fullUrl = mBaseURL + location;
 
 		Log.v(TAG, "get data from: " + fullUrl);
@@ -48,7 +48,7 @@ public class HttpURLDataFetcher implements DataFetcher {
 	}
 	
 	@Override
-	public String postToServer(ResponseHandler responseHandler, String location, String body) throws IOException {
+	public String post(ResponseHandler responseHandler, String location, String body) throws IOException {
 		String fullUrl = mBaseURL + location;
 		Log.v(TAG, "post data to: " + fullUrl);
 		

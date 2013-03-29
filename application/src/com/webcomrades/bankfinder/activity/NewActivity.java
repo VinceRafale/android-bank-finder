@@ -73,7 +73,7 @@ public class NewActivity extends BankFinderActivity {
             	Bank mBank = null;
 
                 try {
-                	mBank = BankFinder.getNetworkController().postBankToServer(mNewBank[0]);
+                	mBank = BankFinder.getNetworkController().postBank(mNewBank[0]);
                 } catch (Exception e) {
                     exception = e;
                 }
