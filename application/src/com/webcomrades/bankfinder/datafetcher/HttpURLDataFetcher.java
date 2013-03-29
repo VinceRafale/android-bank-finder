@@ -1,4 +1,4 @@
-package com.webcomrades.bankfinder.controller;
+package com.webcomrades.bankfinder.datafetcher;
 
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
@@ -14,24 +14,30 @@ import de.akquinet.android.androlog.Log;
  * @since 2013
  */
 
-public class DataFetcher {
+public class HttpURLDataFetcher implements DataFetcher {
 
-	private static final String TAG = DataFetcher.class.getSimpleName();
-
-	public interface ResponseHandler {
-		public String handleResponse(InputStream input) throws IOException;
+	private static final String TAG = HttpURLDataFetcher.class.getSimpleName();
+	
+	private final int mConnectTimeout;
+	private final int mReadTimeout;
+	private final String mBaseURL;
+	
+	public HttpURLDataFetcher(String baseUrl, int connectTimeout, int readTimeout) {
+		mConnectTimeout = connectTimeout;
+		mReadTimeout = readTimeout;
+		mBaseURL = baseUrl;
 	}
 	
-	public static String getFromServer(ResponseHandler responseHandler,
-			String fullUrl, int connectTimeout, int readTimeout)
-			throws IOException {
+	@Override
+	public String getFromServer(ResponseHandler responseHandler, String location) throws IOException {
+		String fullUrl = mBaseURL + location;
 
 		Log.v(TAG, "get data from: " + fullUrl);
 
 		URL url = new URL(fullUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-		connection.setConnectTimeout(connectTimeout);
-		connection.setReadTimeout(readTimeout);
+		connection.setConnectTimeout(mConnectTimeout);
+		connection.setReadTimeout(mReadTimeout);
 		
 		try {
 			InputStream stream = connection.getInputStream();
@@ -41,15 +47,15 @@ public class DataFetcher {
 		}
 	}
 	
-	public static String postToServer(ResponseHandler responseHandler, 
-			String fullUrl, int connectTimeout, int readTimeout, String body) throws IOException {
-		
+	@Override
+	public String postToServer(ResponseHandler responseHandler, String location, String body) throws IOException {
+		String fullUrl = mBaseURL + location;
 		Log.v(TAG, "post data to: " + fullUrl);
 		
 		URL url = new URL(fullUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-		connection.setConnectTimeout(connectTimeout);
-		connection.setReadTimeout(readTimeout);
+		connection.setConnectTimeout(mConnectTimeout);
+		connection.setReadTimeout(mReadTimeout);
 		connection.setDoOutput(true);
 		connection.setDoInput(true);
 		connection.setUseCaches(false);

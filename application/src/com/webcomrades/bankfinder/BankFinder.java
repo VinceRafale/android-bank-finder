@@ -7,9 +7,10 @@ import android.preference.PreferenceManager;
 
 import com.webcomrades.bankfinder.BankFinderGlobals.Mode;
 import com.webcomrades.bankfinder.controller.BrandManager;
+import com.webcomrades.bankfinder.controller.DataController;
 import com.webcomrades.bankfinder.controller.ErrorHandler;
 import com.webcomrades.bankfinder.controller.ImageViewController;
-import com.webcomrades.bankfinder.controller.NetworkController;
+import com.webcomrades.bankfinder.datafetcher.HttpURLDataFetcher;
 import com.webcomrades.bankfinder.functions.GetBrandsUpdater;
 
 /**
@@ -21,7 +22,7 @@ public class BankFinder extends Application {
 	
 	private static ImageViewController mImageViewController;
 	private static BrandManager mBrandsManager;
-	private static NetworkController mNetworkController;
+	private static DataController mNetworkController;
 	
 	@Override
 	public void onCreate() {
@@ -29,7 +30,7 @@ public class BankFinder extends Application {
 		
 		mImageViewController = new ImageViewController(getApplicationContext(), BankFinderGlobals.HTTP + BankFinderGlobals.getBaseUrl());
 		mBrandsManager = new BrandManager(getApplicationContext());
-		mNetworkController = new NetworkController(getBaseUrl(), BankFinderGlobals.PATH_BANK, BankFinderGlobals.PATH_BRAND, 10000, 30000);		
+		mNetworkController = new DataController(BankFinderGlobals.PATH_BANK, BankFinderGlobals.PATH_BRAND, new HttpURLDataFetcher(getBaseUrl(), 10000, 30000));		
 		
 		saveVersionCode();
 		getBrandsFromServer();
@@ -56,7 +57,7 @@ public class BankFinder extends Application {
 		return mImageViewController;
 	}
 	
-	public static NetworkController getNetworkController() {
+	public static DataController getNetworkController() {
 		return mNetworkController;
 	}
 	
