@@ -16,9 +16,9 @@ public class Bank {
 	public String name;
 	public String address;
 
-	public Bank(String name, String address) {
+	public Bank(String name, String address, String brandId) {
 		this.id = UUID.randomUUID().toString();
-		this.brandId = "0c2fc1ae-ca11-4fdc-9e62-757ec60147a7"; // bnp
+		this.brandId = brandId;
 		this.name = name;
 		this.address = address;
 	}

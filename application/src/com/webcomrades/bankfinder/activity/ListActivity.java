@@ -5,7 +5,6 @@ import java.util.List;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -53,8 +52,6 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
         mLoadingView.setVisibility(View.VISIBLE);
         
         refresh();
-        
-        Log.i("BankFinderListActivity" , BankFinder.getBrandsManager().getBrands().values().toString());
     }
 
 	@Override
@@ -67,13 +64,14 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.menu_refresh) {
+		switch (item.getItemId()) {
+		case R.id.menu_refresh:
 			refresh();
 			return true;
-		} else if (item.getItemId() == R.id.menu_add) {
+		case R.id.menu_add:
 			startActivity(new Intent(this, NewActivity.class));
 			return true;
-		} else {
+		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}

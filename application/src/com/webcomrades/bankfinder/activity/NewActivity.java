@@ -1,6 +1,9 @@
 package com.webcomrades.bankfinder.activity;
 
-import android.content.Intent;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,19 +11,24 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.google.analytics.tracking.android.Log;
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.controller.ErrorHandler;
 import com.webcomrades.bankfinder.model.Bank;
+import com.webcomrades.bankfinder.model.Brand;
 
 public class NewActivity extends BankFinderActivity {
 
 	private Bank mNewBank;
+	private final List<Brand> mBrands = new LinkedList<Brand>(BankFinder.getBrandsManager().getBrands().values());
 	
 	private Spinner mBrandSpinner;
 	private EditText mBankName;
@@ -32,7 +40,15 @@ public class NewActivity extends BankFinderActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        
+		ArrayAdapter<String> brandAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
+		brandAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		brandAdapter.addAll(getBrandNames());
+        
         mBrandSpinner = (Spinner) findViewById(R.id.Spinner_Brand);
+        mBrandSpinner.setAdapter(brandAdapter);
+        
         mBankName = (EditText) findViewById(R.id.EditText_BankName);
         mBankAddress = (EditText) findViewById(R.id.EditText_BankAddress);
         mSubmitButton = (Button) findViewById(R.id.Button_Submit);
@@ -45,18 +61,25 @@ public class NewActivity extends BankFinderActivity {
 		});
     }
     
+    private Collection<String> getBrandNames() {
+		Function<Brand, String> transFormBrands = new Function<Brand, String>() {
+			@Override
+			public String apply(Brand brand) {
+				return brand.name;
+			}
+		};
+        
+		return Collections2.transform(mBrands, transFormBrands);
+    }
+    
 	private void submitNewBank() {
 		String name = mBankName.getText().toString();
 		String address = mBankAddress.getText().toString();
+		String brandId = mBrands.get(mBrandSpinner.getSelectedItemPosition()).id;
 		
 		if (mNewBank == null) {
-			mNewBank = new Bank(name, address);
+			mNewBank = new Bank(name, address, brandId);
 		}
-		
-		Log.w("new bank id: " + mNewBank.id); //TODO remove this!
-		
-		//mNewBank.name = (!name.isEmpty()) ? name : "";
-		//mNewBank.address = (!address.isEmpty()) ? address : "";
 
         new AsyncTask<Bank, Void, Bank>() {
             private Exception exception = null;
@@ -85,6 +108,9 @@ public class NewActivity extends BankFinderActivity {
             protected void onPostExecute(Bank mBank) {
                 if (exception != null) {
                 	ErrorHandler.getInstance().handleError(getApplicationContext(), exception, true);
+                } else {
+                	Toast.makeText(getApplicationContext(), getString(R.string.tSuccess), Toast.LENGTH_SHORT).show();
+                	finish();
                 }
                 
         		mSubmitButton.setEnabled(true);
@@ -103,10 +129,11 @@ public class NewActivity extends BankFinderActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.menu_add) {
-			startActivity(new Intent(this, NewActivity.class));
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
 			return true;
-		} else {
+		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}

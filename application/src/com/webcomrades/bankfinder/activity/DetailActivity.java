@@ -2,6 +2,7 @@ package com.webcomrades.bankfinder.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +28,8 @@ public class DetailActivity extends BankFinderActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
 
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		// get intent extra's
 		Intent intent = getIntent();
 		if (intent != null && intent.getStringExtra("bank") != null) {
@@ -42,7 +45,6 @@ public class DetailActivity extends BankFinderActivity {
 		
 		setBankDetailInformation();
 		
-
 		mIconImageView.setVisibility(mBank != null && mBank.getBrand() != null 
 				&& mBank.getBrand().icon != null ? View.VISIBLE : View.GONE);
 	}
@@ -80,6 +82,17 @@ public class DetailActivity extends BankFinderActivity {
 			mNoDetailTextView.setVisibility(View.GONE);
 		} else {
 			mNoDetailTextView.setVisibility(View.VISIBLE);
+		}
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
 	}
 

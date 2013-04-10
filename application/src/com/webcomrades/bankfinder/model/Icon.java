@@ -18,4 +18,5 @@ public class Icon {
 		this.url = url;
 		this.fileName = fileName;
 	}
+	
 }

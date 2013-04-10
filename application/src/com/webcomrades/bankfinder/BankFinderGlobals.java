@@ -12,7 +12,7 @@ public class BankFinderGlobals {
 	}
 
 	// application config
-	public static final Mode MODE = Mode.DEV;
+	public static final Mode MODE = Mode.PROD;
 	public static final String ACRA_KEY = "";
 	
 	// server configuration
