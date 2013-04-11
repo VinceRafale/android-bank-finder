@@ -8,8 +8,6 @@ import com.google.analytics.tracking.android.EasyTracker;
 import com.webcomrades.bankfinder.BankFinderGlobals;
 import com.webcomrades.bankfinder.R;
 
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-
 /**
  * @author Jo Somers - sayhello@josomers.be
  * @since 2013
@@ -35,7 +33,7 @@ public abstract class BankFinderActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		Crouton.cancelAllCroutons(); // it's important to dismiss all croutons when destroying the activity!
+		//TODO Crouton.cancelAllCroutons(); // it's important to dismiss all croutons when destroying the activity!
 	}
 
 	protected void initMenuLoader(Menu menu) {

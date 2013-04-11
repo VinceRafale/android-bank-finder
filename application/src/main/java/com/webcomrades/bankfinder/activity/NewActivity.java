@@ -106,7 +106,6 @@ public class NewActivity extends BankFinderActivity {
                 	BankFinder.getErrorHandler().showAndHandleError(NewActivity.this, exception);
                 } else {
                 	Crouton.makeText(NewActivity.this, R.string.tSuccess, Style.CONFIRM).show();
-                	//finish();
                 }
                 
                 bankName.setText("");

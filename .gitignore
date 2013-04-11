@@ -8,3 +8,4 @@ application/.settings/org.eclipse.m2e.core.prefs
 application/bin
 application/gen
 .classpath
+application/target
