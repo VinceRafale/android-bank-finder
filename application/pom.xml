@@ -56,6 +56,14 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>ch.acra</groupId>
+			<artifactId>acra</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.keyboardsurfer.android.widget</groupId>
+			<artifactId>crouton</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

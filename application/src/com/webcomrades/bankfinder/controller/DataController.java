@@ -19,41 +19,41 @@ import com.webcomrades.bankfinder.model.Brand;
 
 public class DataController {
 
-	private final String mBankPath;
-	private final String mBrandPath;
-	private final DataFetcher mDataFetcher;
+	private final String bankPath;
+	private final String brandPath;
+	private final DataFetcher dataFetcher;
 	
 	public DataController(String bankPath, String brandPath, DataFetcher dataFetcher) {
-		this.mBankPath = bankPath;
-		this.mBrandPath = brandPath;
-		this.mDataFetcher = dataFetcher;
+		this.bankPath = bankPath;
+		this.brandPath = brandPath;
+		this.dataFetcher = dataFetcher;
 	}
 	
 	public List<Bank> getBanks() throws IOException {	
-		return DataParser.parseBanks(mDataFetcher.get(new ResponseHandler() {
+		return DataParser.parseBanks(dataFetcher.get(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
 			}
-		}, mBankPath));
+		}, bankPath));
 	}
 	
 	public List<Brand> getBrands() throws IOException {
-		return DataParser.parseBrands(mDataFetcher.get(new ResponseHandler() {
+		return DataParser.parseBrands(dataFetcher.get(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
 			}
-		}, mBrandPath));
+		}, brandPath));
 	}
 
 	public Bank postBank(Bank mNewBank) throws IOException {
-		return DataParser.parseBank(mDataFetcher.post(new ResponseHandler() {
+		return DataParser.parseBank(dataFetcher.post(new ResponseHandler() {
 			@Override
 			public String handleResponse(InputStream input) throws IOException {
 				return IOUtils.toString(input);
 			}
-		}, mBankPath, new Gson().toJson(mNewBank)));
+		}, bankPath, new Gson().toJson(mNewBank)));
 	}
 	
 }

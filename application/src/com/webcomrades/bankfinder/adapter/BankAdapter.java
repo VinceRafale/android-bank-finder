@@ -24,30 +24,30 @@ import com.webcomrades.bankfinder.model.Brand;
 
 public class BankAdapter extends BaseAdapter {
 	
-	private final Context mContext;
-	private final ImageViewController mImageViewController;
-	private List<Bank> mBanks;
-	private ViewHolder mViewHolder;
+	private final Context context;
+	private final ImageViewController imageViewController;
+	private List<Bank> banks;
+	private ViewHolder viewHolder;
 	
 	public BankAdapter(Context context, ImageViewController imageViewController) {
-		this.mContext = context;
-		this.mBanks = new ArrayList<Bank>();
-		this.mImageViewController = imageViewController;
+		this.context = context;
+		this.banks = new ArrayList<Bank>();
+		this.imageViewController = imageViewController;
 	}
 	
 	public void updateBanks(List<Bank> banks) {
-		this.mBanks = new ArrayList<Bank>(banks);
+		this.banks = new ArrayList<Bank>(banks);
 		notifyDataSetChanged();
 	}
 	
 	@Override
 	public int getCount() {
-		return mBanks.size();
+		return banks.size();
 	}
 
 	@Override
 	public Bank getItem(int position) {
-		return mBanks.get(position);
+		return banks.get(position);
 	}
 
 	@Override
@@ -75,42 +75,41 @@ public class BankAdapter extends BaseAdapter {
 		final int viewType = getItemViewType(position);
 		
 		if (convertView == null) {
-			convertView = LayoutInflater.from(mContext).inflate(R.layout.activity_list_item, null);
-			mViewHolder = new ViewHolder();
-			mViewHolder.mListItem = (LinearLayout) convertView.findViewById(R.id.LinearLayout_ListItem);
-			mViewHolder.mNameTextView = (TextView) convertView.findViewById(R.id.TextView_Name);
-			mViewHolder.mAddressTextView = (TextView) convertView.findViewById(R.id.TextView_Address);
-			mViewHolder.mIconImageView = (ImageView) convertView.findViewById(R.id.ImageView_BankIcon);
-			convertView.setTag(mViewHolder);
+			convertView = LayoutInflater.from(context).inflate(R.layout.activity_list_item, null);
+			viewHolder = new ViewHolder();
+			viewHolder.listItem = (LinearLayout) convertView.findViewById(R.id.LinearLayout_ListItem);
+			viewHolder.nameTextView = (TextView) convertView.findViewById(R.id.TextView_Name);
+			viewHolder.addressTextView = (TextView) convertView.findViewById(R.id.TextView_Address);
+			viewHolder.iconImageView = (ImageView) convertView.findViewById(R.id.ImageView_BankIcon);
+			convertView.setTag(viewHolder);
 		} else {
-			mViewHolder = (ViewHolder) convertView.getTag();
+			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
 		switch (viewType) {
 		case 0:
-			mViewHolder.mListItem.setBackground(mContext.getResources().getDrawable(R.drawable.list_item_background_normal));
+			viewHolder.listItem.setBackgroundResource(R.drawable.list_item_background_normal);
 			break;
 		default:
-			mViewHolder.mListItem.setBackground(mContext.getResources().getDrawable(R.drawable.list_item_background_inverse));
-			break;
+			viewHolder.listItem.setBackgroundResource(R.drawable.list_item_background_inverse);
 		}
 				
-		mViewHolder.mNameTextView.setText(bank.name != null ? bank.name : "");
-		mViewHolder.mAddressTextView.setText(bank.address != null ? bank.address : "");
+		viewHolder.nameTextView.setText(bank.getName() != null ? bank.getName() : "");
+		viewHolder.addressTextView.setText(bank.getAddress() != null ? bank.getAddress() : "");
 		
-		mViewHolder.mIconImageView.setImageResource(R.drawable.ic_defaultbank);
-		if (brand != null && brand.icon != null) {
-			mImageViewController.download(brand.icon, mViewHolder.mIconImageView, R.drawable.ic_defaultbank);
+		viewHolder.iconImageView.setImageResource(R.drawable.ic_defaultbank);
+		if (brand != null && brand.getIcon() != null) {
+			imageViewController.download(brand.getIcon(), viewHolder.iconImageView, R.drawable.ic_defaultbank);
 		}
 		
 		return convertView;
 	}
 	
 	private class ViewHolder {
-		private LinearLayout mListItem;
-		private TextView mNameTextView;
-		private TextView mAddressTextView;
-		private ImageView mIconImageView;
+		private LinearLayout listItem;
+		private TextView nameTextView;
+		private TextView addressTextView;
+		private ImageView iconImageView;
 	}
 
 }

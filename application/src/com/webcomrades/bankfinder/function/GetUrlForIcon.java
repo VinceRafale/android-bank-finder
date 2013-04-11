@@ -4,12 +4,17 @@ import android.content.Context;
 
 import com.webcomrades.bankfinder.model.Icon;
 
+/**
+ * @author Jo Somers - sayhello@josomers.be
+ * @since 2013
+ */
+
 public enum GetUrlForIcon {
 	
 	F;
 	
 	public String apply(Icon icon, Context context) {
-		String url = icon.url;
+		String url = icon.getUrl();
 		
 		switch (GetDensity.F.apply(context)) {
 		case MDPI:
@@ -25,7 +30,7 @@ public enum GetUrlForIcon {
 			break;
 		}
 		
-		url += icon.fileName;
+		url += icon.getFileName();
 		
 		return url;
 	}

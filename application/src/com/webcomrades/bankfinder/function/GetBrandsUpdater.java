@@ -5,9 +5,14 @@ import java.util.List;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.google.common.collect.Lists;
 import com.webcomrades.bankfinder.BankFinder;
-import com.webcomrades.bankfinder.controller.ErrorHandler;
 import com.webcomrades.bankfinder.model.Brand;
+
+/**
+ * @author Jo Somers - sayhello@josomers.be
+ * @since 2013
+ */
 
 public enum GetBrandsUpdater {
 
@@ -19,24 +24,25 @@ public enum GetBrandsUpdater {
 
             @Override
             protected List<Brand> doInBackground(Void... params) {
-            	List<Brand> mBrands = null;
+            	List<Brand> brands = Lists.newArrayList();
 
                 try {
-                    mBrands = BankFinder.getNetworkController().getBrands();
+                    brands = BankFinder.getNetworkController().getBrands();
                 } catch (Exception e) {
                     exception = e;
                 }
 
-                return mBrands;
+                return brands;
             }
 
             @Override
-            protected void onPostExecute(List<Brand> mBrands) {
+            protected void onPostExecute(List<Brand> brands) {
                 if (exception != null) {
-                	ErrorHandler.getInstance().handleError(context, exception, false);
+                	BankFinder.getErrorHandler().handleError(exception);
+                } else {
+                	BankFinder.getBrandsManager().setBrands(brands);
+                	BrandsInSharedPreferences.F.store(context, Lists.newArrayList(brands));
                 }
-                
-                if (mBrands != null) BankFinder.getBrandsManager().setBrands(mBrands);
             }
         }.execute();
 	}

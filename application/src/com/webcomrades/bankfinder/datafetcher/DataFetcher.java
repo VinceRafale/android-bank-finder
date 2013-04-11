@@ -3,6 +3,11 @@ package com.webcomrades.bankfinder.datafetcher;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * @author Jo Somers - sayhello@josomers.be
+ * @since 2013
+ */
+
 public interface DataFetcher {
 	
 	public interface ResponseHandler {

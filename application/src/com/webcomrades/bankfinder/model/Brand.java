@@ -9,12 +9,24 @@ import java.util.UUID;
 
 public class Brand {
 
-	public String id;
-	public String name;
-	public Icon icon;
+	private String id;
+	private String name;
+	private Icon icon;
 	
 	public Brand() {
 		this.id = UUID.randomUUID().toString();
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public Icon getIcon() {
+		return icon;
 	}
 
 	@Override

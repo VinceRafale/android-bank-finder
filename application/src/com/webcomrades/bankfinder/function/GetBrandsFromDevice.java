@@ -14,6 +14,11 @@ import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.controller.DataParser;
 import com.webcomrades.bankfinder.model.Brand;
 
+/**
+ * @author Jo Somers - sayhello@josomers.be
+ * @since 2013
+ */
+
 public enum GetBrandsFromDevice {
 
 	F;

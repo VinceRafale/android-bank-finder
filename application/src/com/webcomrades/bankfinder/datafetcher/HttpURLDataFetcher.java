@@ -18,26 +18,26 @@ public class HttpURLDataFetcher implements DataFetcher {
 
 	private static final String TAG = HttpURLDataFetcher.class.getSimpleName();
 	
-	private final int mConnectTimeout;
-	private final int mReadTimeout;
-	private final String mBaseURL;
+	private final int connectTimeout;
+	private final int readTimeout;
+	private final String baseURL;
 	
 	public HttpURLDataFetcher(String baseUrl, int connectTimeout, int readTimeout) {
-		mConnectTimeout = connectTimeout;
-		mReadTimeout = readTimeout;
-		mBaseURL = baseUrl;
+		this.connectTimeout = connectTimeout;
+		this.readTimeout = readTimeout;
+		this.baseURL = baseUrl;
 	}
 	
 	@Override
 	public String get(ResponseHandler responseHandler, String location) throws IOException {
-		String fullUrl = mBaseURL + location;
+		String fullUrl = baseURL + location;
 
 		Log.v(TAG, "get data from: " + fullUrl);
 
 		URL url = new URL(fullUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-		connection.setConnectTimeout(mConnectTimeout);
-		connection.setReadTimeout(mReadTimeout);
+		connection.setConnectTimeout(connectTimeout);
+		connection.setReadTimeout(readTimeout);
 		
 		try {
 			InputStream stream = connection.getInputStream();
@@ -49,13 +49,13 @@ public class HttpURLDataFetcher implements DataFetcher {
 	
 	@Override
 	public String post(ResponseHandler responseHandler, String location, String body) throws IOException {
-		String fullUrl = mBaseURL + location;
+		String fullUrl = baseURL + location;
 		Log.v(TAG, "post data to: " + fullUrl);
 		
 		URL url = new URL(fullUrl);
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-		connection.setConnectTimeout(mConnectTimeout);
-		connection.setReadTimeout(mReadTimeout);
+		connection.setConnectTimeout(connectTimeout);
+		connection.setReadTimeout(readTimeout);
 		connection.setDoOutput(true);
 		connection.setDoInput(true);
 		connection.setUseCaches(false);

@@ -1,6 +1,5 @@
 package com.webcomrades.bankfinder.activity;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,25 +14,33 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.R;
-import com.webcomrades.bankfinder.controller.ErrorHandler;
 import com.webcomrades.bankfinder.model.Bank;
 import com.webcomrades.bankfinder.model.Brand;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 public class NewActivity extends BankFinderActivity {
 
-	private Bank mNewBank;
-	private final List<Brand> mBrands = new LinkedList<Brand>(BankFinder.getBrandsManager().getBrands().values());
+	private Bank newBank;
+	private final List<Brand> brands = new LinkedList<Brand>(BankFinder.getBrandsManager().getBrands().values());
 	
-	private Spinner mBrandSpinner;
-	private EditText mBankName;
-	private EditText mBankAddress;
-	private Button mSubmitButton;
+	private final Function<Brand, String> BRAND_NAMES = new Function<Brand, String>() {
+		@Override
+		public String apply(Brand brand) {
+			return brand.getName();
+		}
+	};
+	
+	private Spinner brandSpinner;
+	private EditText bankName;
+	private EditText bankAddress;
+	private Button submitButton;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +51,16 @@ public class NewActivity extends BankFinderActivity {
         
 		ArrayAdapter<String> brandAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
 		brandAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		brandAdapter.addAll(getBrandNames());
+		brandAdapter.addAll(Collections2.transform(brands, BRAND_NAMES));
         
-        mBrandSpinner = (Spinner) findViewById(R.id.Spinner_Brand);
-        mBrandSpinner.setAdapter(brandAdapter);
+        brandSpinner = (Spinner) findViewById(R.id.Spinner_Brand);
+        brandSpinner.setAdapter(brandAdapter);
         
-        mBankName = (EditText) findViewById(R.id.EditText_BankName);
-        mBankAddress = (EditText) findViewById(R.id.EditText_BankAddress);
-        mSubmitButton = (Button) findViewById(R.id.Button_Submit);
+        bankName = (EditText) findViewById(R.id.EditText_BankName);
+        bankAddress = (EditText) findViewById(R.id.EditText_BankAddress);
+        submitButton = (Button) findViewById(R.id.Button_Submit);
         
-        mSubmitButton.setOnClickListener(new OnClickListener() {
+        submitButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				submitNewBank();
@@ -61,24 +68,13 @@ public class NewActivity extends BankFinderActivity {
 		});
     }
     
-    private Collection<String> getBrandNames() {
-		Function<Brand, String> transFormBrands = new Function<Brand, String>() {
-			@Override
-			public String apply(Brand brand) {
-				return brand.name;
-			}
-		};
-        
-		return Collections2.transform(mBrands, transFormBrands);
-    }
-    
 	private void submitNewBank() {
-		String name = mBankName.getText().toString();
-		String address = mBankAddress.getText().toString();
-		String brandId = mBrands.get(mBrandSpinner.getSelectedItemPosition()).id;
+		String name = bankName.getText().toString();
+		String address = bankAddress.getText().toString();
+		String brandId = brands.get(brandSpinner.getSelectedItemPosition()).getId();
 		
-		if (mNewBank == null) {
-			mNewBank = new Bank(name, address, brandId);
+		if (newBank == null) {
+			newBank = new Bank(name, address, brandId);
 		}
 
         new AsyncTask<Bank, Void, Bank>() {
@@ -87,7 +83,7 @@ public class NewActivity extends BankFinderActivity {
             @Override
             protected void onPreExecute() {
                 showSpinnerInActionbar(true);
-                mSubmitButton.setEnabled(false);
+                submitButton.setEnabled(false);
                 super.onPreExecute();
             }
 
@@ -107,16 +103,18 @@ public class NewActivity extends BankFinderActivity {
             @Override
             protected void onPostExecute(Bank mBank) {
                 if (exception != null) {
-                	ErrorHandler.getInstance().handleError(getApplicationContext(), exception, true);
+                	BankFinder.getErrorHandler().showAndHandleError(NewActivity.this, exception);
                 } else {
-                	Toast.makeText(getApplicationContext(), getString(R.string.tSuccess), Toast.LENGTH_SHORT).show();
-                	finish();
+                	Crouton.makeText(NewActivity.this, R.string.tSuccess, Style.CONFIRM).show();
+                	//finish();
                 }
                 
-        		mSubmitButton.setEnabled(true);
+                bankName.setText("");
+                bankAddress.setText("");
+        		submitButton.setEnabled(true);
         		showSpinnerInActionbar(false);
             }
-        }.execute(mNewBank);
+        }.execute(newBank);
 	}
     
 	@Override

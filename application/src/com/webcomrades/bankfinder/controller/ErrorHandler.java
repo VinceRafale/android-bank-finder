@@ -1,10 +1,8 @@
 package com.webcomrades.bankfinder.controller;
 
-import android.content.Context;
-import android.widget.Toast;
+import org.acra.ACRA;
 
-import com.webcomrades.bankfinder.BankFinder;
-import com.webcomrades.bankfinder.R;
+import android.app.Activity;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -12,30 +10,23 @@ import com.webcomrades.bankfinder.R;
  */
 
 public class ErrorHandler {
-
-	private static ErrorHandler errorController;
 	
-	private ErrorHandler() {
-		
+	private final boolean inProductionMode;
+	
+	public ErrorHandler(boolean inProductionMode) {
+		this.inProductionMode = inProductionMode;
 	}
 	
-	public static ErrorHandler getInstance() {
-		if (errorController == null) {
-			errorController = new ErrorHandler();
-		}
-		
-		return errorController;
+	public void showAndHandleError(Activity activity, Throwable throwable) {
+		new ErrorDisplayManager(activity).showError(throwable);
+		handleError(throwable);
 	}
 	
-	public void handleError(Context context, Throwable e, boolean showError) {
-		if (showError) Toast.makeText(context, context.getString(R.string.tError), Toast.LENGTH_SHORT).show();
-				
-		if (!BankFinder.inProductionMode()) {
-			e.printStackTrace();
+	public void handleError(Throwable throwable) {
+		ACRA.getErrorReporter().handleException(throwable);
+		if (!inProductionMode) {
+			throwable.printStackTrace();
 		}
-		
-		// TODO: create an implementation of this method!
-		// log the exception and add it to our exception database.
 	}
 	
 }

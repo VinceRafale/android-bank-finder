@@ -19,12 +19,12 @@ public class FileDataFetcher implements DataFetcher {
 
 	private static final String TAG = FileDataFetcher.class.getSimpleName();
 	
-	private final Context mContext;
-	private final ImmutableMap<String, Integer> mRawResourceIds;
+	private final Context context;
+	private final ImmutableMap<String, Integer> rawResourceIds;
 	
 	public FileDataFetcher(Context context, ImmutableMap<String, Integer> rawResourceIds) {
-		this.mContext = context;
-		this.mRawResourceIds = rawResourceIds;
+		this.context = context;
+		this.rawResourceIds = rawResourceIds;
 	}
 	
 	@Override
@@ -32,13 +32,13 @@ public class FileDataFetcher implements DataFetcher {
 		
 		Log.v(TAG, "get from resource: " + location);
 
-		InputStream stream = mContext.getResources().openRawResource(mRawResourceIds.get(location));
+		InputStream stream = context.getResources().openRawResource(rawResourceIds.get(location));
 		return responseHandler.handleResponse(new BufferedInputStream(stream));
 	}
 	
 	@Override
 	public String post(ResponseHandler responseHandler, String location, String body) throws IOException {
-		return null;	// TODO
+		return "";	// TODO
 	}
 
 }

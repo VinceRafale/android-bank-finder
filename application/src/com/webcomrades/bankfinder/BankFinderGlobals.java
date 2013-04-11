@@ -7,12 +7,12 @@ package com.webcomrades.bankfinder;
 
 public class BankFinderGlobals {
 
-	public enum Mode {
+	private enum Mode {
 		DEV, PROD
 	}
 
 	// application config
-	public static final Mode MODE = Mode.PROD;
+	private static final Mode MODE = Mode.PROD;
 	public static final String ACRA_KEY = "dG55MGI4VnNad2F2RVBHUXpwY01SV2c6MA";
 	
 	// server configuration
@@ -28,9 +28,13 @@ public class BankFinderGlobals {
 	// shared preferences
 	public static final String PREFERENCE_VERSION_CODE = "version_code";
 	
-	// information
+	// application
 	public static String getBaseUrl() {
 		return MODE == Mode.PROD ? BASE_URL_PROD : BASE_URL_DEV;
+	}
+	
+	public static boolean inProductionMode() {
+		return BankFinderGlobals.MODE == Mode.PROD;
 	}
 
 }

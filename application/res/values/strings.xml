@@ -17,7 +17,7 @@
     <string name="tRefresh">Refresh</string>
     <string name="tRefreshLoading">Loading</string>
     <string name="tSuccess">Added! Thank you.</string>
-    <string name="tEmpty">Oops. Nothing to see here.</string>
+    <string name="tEmpty">Nothing to see here.</string>
     <string name="tEmptyDetail">Euh. Looking for someting ?</string>
 	<string name="tError">Oops. Something went wrong!</string>
 </resources>

@@ -13,15 +13,18 @@ import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.model.Bank;
 import com.webcomrades.bankfinder.model.Brand;
 
+/**
+ * @author Jo Somers - sayhello@josomers.be
+ * @since 2013
+ */
+
 public class DetailActivity extends BankFinderActivity {
 
-	private Bank mBank;
-
-	private TextView mBrandNameTextView;
-	private TextView mNameTextView;
-	private TextView mAddressTextView;
-	private TextView mNoDetailTextView;
-	private ImageView mIconImageView;
+	private TextView brandNameTextView;
+	private TextView nameTextView;
+	private TextView addressTextView;
+	private TextView noDetailTextView;
+	private ImageView iconImageView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,56 +35,57 @@ public class DetailActivity extends BankFinderActivity {
 		
 		// get intent extra's
 		Intent intent = getIntent();
+		Bank bank = null;
 		if (intent != null && intent.getStringExtra("bank") != null) {
 			String bankDetail = intent.getStringExtra("bank");
-			mBank = new Gson().fromJson(bankDetail, Bank.class);
+			bank = new Gson().fromJson(bankDetail, Bank.class);
 		}
 		
-		mNoDetailTextView = (TextView) findViewById(R.id.TextView_NoDetailInfo);
-		mBrandNameTextView = (TextView) findViewById(R.id.TextView_Brand);
-		mNameTextView = (TextView) findViewById(R.id.TextView_Name);
-		mAddressTextView = (TextView) findViewById(R.id.TextView_Address);
-		mIconImageView = (ImageView) findViewById(R.id.ImageView_BankIcon);
+		noDetailTextView = (TextView) findViewById(R.id.TextView_NoDetailInfo);
+		brandNameTextView = (TextView) findViewById(R.id.TextView_Brand);
+		nameTextView = (TextView) findViewById(R.id.TextView_Name);
+		addressTextView = (TextView) findViewById(R.id.TextView_Address);
+		iconImageView = (ImageView) findViewById(R.id.ImageView_BankIcon);
 		
-		setBankDetailInformation();
+		setBankDetailInformation(bank);
 		
-		mIconImageView.setVisibility(mBank != null && mBank.getBrand() != null 
-				&& mBank.getBrand().icon != null ? View.VISIBLE : View.GONE);
+		iconImageView.setVisibility(bank != null && bank.getBrand() != null 
+				&& bank.getBrand().getIcon() != null ? View.VISIBLE : View.GONE);
 	}
 	
-	private void setBankDetailInformation() {
-		if (mBank != null) {
-			if (mBank.name != null) {
-				mNameTextView.setText(mBank.name);
-				mNameTextView.setVisibility(View.VISIBLE);
+	private void setBankDetailInformation(Bank bank) {
+		if (bank != null) {
+			if (bank.getName() != null) {
+				nameTextView.setText(bank.getName());
+				nameTextView.setVisibility(View.VISIBLE);
 			} else {
-				mNameTextView.setVisibility(View.GONE);
+				nameTextView.setVisibility(View.GONE);
 			}
 			
-			if (mBank.address != null) {
-				mAddressTextView.setText(mBank.address);
-				mAddressTextView.setVisibility(View.VISIBLE);
+			if (bank.getAddress() != null) {
+				addressTextView.setText(bank.getAddress());
+				addressTextView.setVisibility(View.VISIBLE);
 			} else {
-				mAddressTextView.setVisibility(View.GONE);
+				addressTextView.setVisibility(View.GONE);
 			}
 			
-			final Brand brand = mBank.getBrand();
+			final Brand brand = bank.getBrand();
 			
-			mIconImageView.setImageResource(R.drawable.ic_defaultbank);
-			if (brand != null && brand.icon != null) {
-				BankFinder.getImageViewController().download(brand.icon, mIconImageView, R.drawable.ic_defaultbank);
+			iconImageView.setImageResource(R.drawable.ic_defaultbank);
+			if (brand != null && brand.getIcon() != null) {
+				BankFinder.getImageViewController().download(brand.getIcon(), iconImageView, R.drawable.ic_defaultbank);
 			}
 			
-			if (brand != null && brand.name != null) {
-				mBrandNameTextView.setText(brand.name);
-				mBrandNameTextView.setVisibility(View.VISIBLE);
+			if (brand != null && brand.getName() != null) {
+				brandNameTextView.setText(brand.getName());
+				brandNameTextView.setVisibility(View.VISIBLE);
 			} else {
-				mBrandNameTextView.setVisibility(View.GONE);
+				brandNameTextView.setVisibility(View.GONE);
 			}
 						
-			mNoDetailTextView.setVisibility(View.GONE);
+			noDetailTextView.setVisibility(View.GONE);
 		} else {
-			mNoDetailTextView.setVisibility(View.VISIBLE);
+			noDetailTextView.setVisibility(View.VISIBLE);
 		}
 	}
 	

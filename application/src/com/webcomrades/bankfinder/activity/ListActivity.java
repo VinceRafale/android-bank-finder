@@ -15,11 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.R;
 import com.webcomrades.bankfinder.adapter.BankAdapter;
-import com.webcomrades.bankfinder.controller.ErrorHandler;
 import com.webcomrades.bankfinder.model.Bank;
 
 /**
@@ -29,27 +29,27 @@ import com.webcomrades.bankfinder.model.Bank;
 
 public class ListActivity extends BankFinderActivity implements OnItemClickListener {
 
-	private BankAdapter mBankAdapter;
-	private ListView mListView;
-	private TextView mEmptyView;
-	private LinearLayout mLoadingView;
+	private BankAdapter bankAdapter;
+	private ListView listView;
+	private TextView emptyView;
+	private LinearLayout loadingView;
 		
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         
-        mBankAdapter = new BankAdapter(this, BankFinder.getImageViewController());
+        bankAdapter = new BankAdapter(this, BankFinder.getImageViewController());
         
-        mListView = (ListView) findViewById(R.id.ListView_Banks);
-        mListView.setAdapter(mBankAdapter);
-        mListView.setOnItemClickListener(this);
+        listView = (ListView) findViewById(R.id.ListView_Banks);
+        listView.setAdapter(bankAdapter);
+        listView.setOnItemClickListener(this);
         
-        mEmptyView = (TextView) findViewById(R.id.TextView_Empty);
-        mEmptyView.setVisibility(View.GONE);
+        emptyView = (TextView) findViewById(R.id.TextView_Empty);
+        emptyView.setVisibility(View.GONE);
         
-        mLoadingView = (LinearLayout) findViewById(R.id.LinearLayout_Loading);
-        mLoadingView.setVisibility(View.VISIBLE);
+        loadingView = (LinearLayout) findViewById(R.id.LinearLayout_Loading);
+        loadingView.setVisibility(View.VISIBLE);
         
         refresh();
     }
@@ -88,26 +88,27 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
 
             @Override
             protected List<Bank> doInBackground(Void... params) {
-            	List<Bank> mBanks = null;
+            	List<Bank> banks = Lists.newArrayList();
 
                 try {
-                    mBanks = BankFinder.getNetworkController().getBanks();
+                    banks = BankFinder.getNetworkController().getBanks();
                 } catch (Exception e) {
                     exception = e;
                 }
 
-                return mBanks;
+                return banks;
             }
 
             @Override
-            protected void onPostExecute(List<Bank> mBanks) {
+            protected void onPostExecute(List<Bank> banks) {
                 if (exception != null) {
-                	ErrorHandler.getInstance().handleError(getApplicationContext(), exception, true);
+                	BankFinder.getErrorHandler().showAndHandleError(ListActivity.this, exception);
+                } else {
+                	bankAdapter.updateBanks(banks);
                 }
                 
-                if (mBanks != null) mBankAdapter.updateBanks(mBanks);
-        		mEmptyView.setVisibility(mBankAdapter.isEmpty() ? View.VISIBLE : View.GONE);
-        		mLoadingView.setVisibility(View.GONE);
+        		emptyView.setVisibility(bankAdapter.isEmpty() ? View.VISIBLE : View.GONE);
+        		loadingView.setVisibility(View.GONE);
         		showSpinnerInActionbar(false);
             }
         }.execute();
@@ -116,7 +117,7 @@ public class ListActivity extends BankFinderActivity implements OnItemClickListe
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Intent bankDetailIntent = new Intent(this, DetailActivity.class);
-		bankDetailIntent.putExtra("bank", new Gson().toJson(mBankAdapter.getItem(position)));
+		bankDetailIntent.putExtra("bank", new Gson().toJson(bankAdapter.getItem(position)));
 		startActivity(bankDetailIntent);
 	}
 	    	

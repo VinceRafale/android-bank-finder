@@ -13,12 +13,14 @@
         android:id="@+id/Spinner_Brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:gravity="center_vertical|left" />
 
     <EditText
         android:id="@+id/EditText_BankName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:hint="@string/tHintBankName"
         android:inputType="textMultiLine"
         android:maxLength="75"
@@ -29,6 +31,7 @@
         android:id="@+id/EditText_BankAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:hint="@string/tHintBankAddress"
         android:inputType="textMultiLine"
         android:maxLength="75"

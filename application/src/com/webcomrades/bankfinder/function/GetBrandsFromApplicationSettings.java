@@ -8,6 +8,11 @@ import android.content.res.Resources.NotFoundException;
 
 import com.webcomrades.bankfinder.model.Brand;
 
+/**
+ * @author Jo Somers - sayhello@josomers.be
+ * @since 2013
+ */
+
 public enum GetBrandsFromApplicationSettings {
 
 	F;

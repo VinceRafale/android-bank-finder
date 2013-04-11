@@ -5,8 +5,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.analytics.tracking.android.EasyTracker;
-import com.webcomrades.bankfinder.BankFinder;
+import com.webcomrades.bankfinder.BankFinderGlobals;
 import com.webcomrades.bankfinder.R;
+
+import de.keyboardsurfer.android.widget.crouton.Crouton;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -21,15 +23,21 @@ public abstract class BankFinderActivity extends Activity {
 	@Override
 	public void onStart() {
 		super.onStart();
-		if (BankFinder.inProductionMode()) EasyTracker.getInstance().activityStart(this);
+		if (BankFinderGlobals.inProductionMode()) EasyTracker.getInstance().activityStart(this);
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
-		if (BankFinder.inProductionMode()) EasyTracker.getInstance().activityStop(this);
+		if (BankFinderGlobals.inProductionMode()) EasyTracker.getInstance().activityStop(this);
 	}
 	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		Crouton.cancelAllCroutons(); // it's important to dismiss all croutons when destroying the activity!
+	}
+
 	protected void initMenuLoader(Menu menu) {
 		menuLoader = menu.findItem(R.id.menu_loader);
 		if(menuLoader != null) {
