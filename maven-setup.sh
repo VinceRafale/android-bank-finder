@@ -8,7 +8,7 @@ mvn install:install-file \
     -Dpackaging=jar
     
 mvn install:install-file \
-    -Dfile=application/libs/libGoogleAnalyticsV2.jar \
+    -Dfile=libs/libGoogleAnalyticsV2.jar \
     -DgroupId=com.google.android \
     -DartifactId=analytics \
     -Dversion=2 \
