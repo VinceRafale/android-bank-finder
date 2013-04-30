@@ -39,7 +39,7 @@ public class BankAdapter extends BaseAdapter {
 		this.banks = new ArrayList<Bank>(banks);
 		notifyDataSetChanged();
 	}
-	
+		
 	@Override
 	public int getCount() {
 		return banks.size();
