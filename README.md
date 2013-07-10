@@ -2,6 +2,7 @@ Bank Finder
 ============
 
 Android application to find a bank nearby.
+
 Presentation: http://www.slideshare.net/josomers/20130422-bank-finder
 
 
