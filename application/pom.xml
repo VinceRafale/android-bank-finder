@@ -15,6 +15,14 @@
 	<url>https://github.com/josomers/android-bank-finder</url>
 
 	<dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.pivotallabs</groupId>
+            <artifactId>robolectric</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
@@ -23,17 +31,6 @@
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android-test</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-
-			<exclusions>
-				<exclusion>
-					<artifactId>hamcrest-core</artifactId>
-					<groupId>org.hamcrest</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>de.akquinet.android.androlog</groupId>
@@ -107,9 +104,13 @@
 								<configuration>
 									<removeExistingSignatures>true</removeExistingSignatures>
 									<archiveDirectory />
-									<keystore>${sign.keystore}</keystore>
+									<!--suppress MavenModelInspection -->
+                                    <keystore>${sign.keystore}</keystore>
+                                    <!--suppress MavenModelInspection -->
 									<alias>${sign.alias}</alias>
+                                    <!--suppress MavenModelInspection -->
 									<storepass>${sign.storepass}</storepass>
+                                    <!--suppress MavenModelInspection -->
 									<keypass>${sign.keypass}</keypass>
 									<verbose>true</verbose>
 								</configuration>
@@ -155,7 +156,11 @@
 									<classifier>signed-aligned</classifier>
 								</artifact>
 							</artifacts>
-						</configuration>
+                            <name/>
+                            <regex/>
+                            <source/>
+                            <value/>
+                        </configuration>
 						<executions>
 							<execution>
 								<id>attach-signed-aligned</id>
