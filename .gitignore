@@ -45,3 +45,5 @@ application/target
 .idea/workspace.xml
 application/project-bank-finder.iml
 parent-bank-finder.iml
+.idea
+out
