@@ -47,3 +47,6 @@ application/project-bank-finder.iml
 parent-bank-finder.iml
 .idea
 out
+application/pom.xml.releaseBackup
+pom.xml.releaseBackup
+release.properties
