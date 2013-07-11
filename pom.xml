@@ -54,7 +54,7 @@
         <encoding>UTF-8</encoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
-		<android.version>17</android.version>
+		<android.version>4.2.2.0</android.version>
 		<android.platform>17</android.platform>
 		<android-maven.version>3.6.0</android-maven.version>
         <maven-source-plugin.version>2.2</maven-source-plugin.version>
@@ -68,7 +68,7 @@
         <webimageloader.version>1.1.5</webimageloader.version>
         <acra.version>4.4.0</acra.version>
         <crouton.version>1.7</crouton.version>
-        <analytics.version>2</analytics.version>
+        <analytics.version>2.0</analytics.version>
         <supportlib.version>r13</supportlib.version>
 		<github.downloads.repositoryOwner>josomers</github.downloads.repositoryOwner>
 		<github.downloads.repositoryName>android-bank-finder</github.downloads.repositoryName>
