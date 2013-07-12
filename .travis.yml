@@ -1,7 +1,7 @@
 language: java
 
 branches:
-    except:
+    excludes:
         - gh-pages
 
 notifications:
@@ -9,9 +9,16 @@ notifications:
         - sayhello@josomers.be
 
 before_install:
-    # download the latest android sdk and unzip
+    - sudo apt-get update -qq
+    - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
     - wget http://dl.google.com/android/android-sdk_r21-linux.tgz
     - tar -zxf android-sdk_r21-linux.tgz
     - export ANDROID_HOME=`pwd`/android-sdk-linux
     - export PATH=${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}
     - android update sdk --filter platform-tools,android-16 --no-ui --force
+
+install:
+    - "mvn package --quiet -DskipTests"
+    - "mvn verify"
+
+script: echo Tests skipped
