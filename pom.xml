@@ -52,12 +52,12 @@
 
 	<properties>
         <encoding>UTF-8</encoding>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<java.version>1.6</java.version>
 		<android.version>4.1.1.4</android.version>
 		<android-test.version>4.1.1.4</android-test.version>
 		<android.platform>16</android.platform>
 		<android-maven.version>3.6.0</android-maven.version>
+        <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
         <maven-source-plugin.version>2.2</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
 		<androlog.version>1.0.6</androlog.version>
@@ -154,7 +154,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.0</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
