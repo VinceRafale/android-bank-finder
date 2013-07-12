@@ -47,7 +47,6 @@
 		<url>https://github.com/josomers/android-bank-finder</url>
 		<connection>scm:git:git://github.com/josomers/android-bank-finder.git</connection>
 		<developerConnection>scm:git:git@github.com:josomers/android-bank-finder.git</developerConnection>
-		<tag>1.0</tag>
 	</scm>
 
 	<properties>
