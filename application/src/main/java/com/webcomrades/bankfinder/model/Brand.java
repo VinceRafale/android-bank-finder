@@ -9,29 +9,29 @@ import java.util.UUID;
 
 public class Brand {
 
-	private String id;
-	private String name;
-	private Icon icon;
-	
-	public Brand() {
-		this.id = UUID.randomUUID().toString();
-	}
+    private String id;
+    private String name;
+    private Icon icon;
 
-	public String getId() {
-		return id;
-	}
+    public Brand() {
+        this.id = UUID.randomUUID().toString();
+    }
 
-	public String getName() {
-		return name;
-	}
-	
-	public Icon getIcon() {
-		return icon;
-	}
+    public String getId() {
+        return id;
+    }
 
-	@Override
-	public String toString() {
-		return name;
-	}
-		
+    public String getName() {
+        return name;
+    }
+
+    public Icon getIcon() {
+        return icon;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

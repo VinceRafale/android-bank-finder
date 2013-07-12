@@ -1,8 +1,8 @@
 package com.webcomrades.bankfinder.controller;
 
-import org.acra.ACRA;
-
 import android.app.Activity;
+
+import org.acra.ACRA;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -10,23 +10,23 @@ import android.app.Activity;
  */
 
 public class ErrorHandler {
-	
-	private final boolean inProductionMode;
-	
-	public ErrorHandler(boolean inProductionMode) {
-		this.inProductionMode = inProductionMode;
-	}
-	
-	public void showAndHandleError(Activity activity, Throwable throwable) {
-		new ErrorDisplayManager(activity).showError(throwable);
-		handleError(throwable);
-	}
-	
-	public void handleError(Throwable throwable) {
-		ACRA.getErrorReporter().handleException(throwable);
-		if (!inProductionMode) {
-			throwable.printStackTrace();
-		}
-	}
-	
+
+    private final boolean inProductionMode;
+
+    public ErrorHandler(boolean inProductionMode) {
+        this.inProductionMode = inProductionMode;
+    }
+
+    public void showAndHandleError(Activity activity, Throwable throwable) {
+        new ErrorDisplayManager(activity).showError(throwable);
+        handleError(throwable);
+    }
+
+    public void handleError(Throwable throwable) {
+        ACRA.getErrorReporter().handleException(throwable);
+        if (!inProductionMode) {
+            throwable.printStackTrace();
+        }
+    }
+
 }

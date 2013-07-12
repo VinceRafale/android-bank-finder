@@ -1,8 +1,8 @@
 package com.webcomrades.bankfinder.model;
 
-import java.util.UUID;
-
 import com.webcomrades.bankfinder.BankFinder;
+
+import java.util.UUID;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -11,41 +11,41 @@ import com.webcomrades.bankfinder.BankFinder;
 
 public class Bank {
 
-	private String id;
-	private String brandId;
-	private String name;
-	private String address;
+    private String id;
+    private String brandId;
+    private String name;
+    private String address;
 
-	public Bank(String name, String address, String brandId) {
-		this.id = UUID.randomUUID().toString();
-		this.brandId = brandId;
-		this.name = name;
-		this.address = address;
-	}
+    public Bank(String name, String address, String brandId) {
+        this.id = UUID.randomUUID().toString();
+        this.brandId = brandId;
+        this.name = name;
+        this.address = address;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getBrandId() {
-		return brandId;
-	}
+    public String getBrandId() {
+        return brandId;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public Brand getBrand() {
-		return BankFinder.getBrandsManager().getBrandById(brandId);
-	}
+    public Brand getBrand() {
+        return BankFinder.getBrandsManager().getBrandById(brandId);
+    }
 
-	@Override
-	public String toString() {
-		return name + ", " + address;
-	}
+    @Override
+    public String toString() {
+        return name + ", " + address;
+    }
 
 }

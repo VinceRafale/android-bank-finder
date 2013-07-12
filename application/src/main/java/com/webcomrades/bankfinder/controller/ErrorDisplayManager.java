@@ -14,14 +14,14 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class ErrorDisplayManager {
 
-	private Activity activity;
-	
-	public ErrorDisplayManager(Activity activity) {
-		this.activity = activity;
-	}
-	
-	public void showError(Throwable error) {
-		Crouton.makeText(activity, R.string.tError, Style.ALERT).show();
-	}
-	
+    private Activity activity;
+
+    public ErrorDisplayManager(Activity activity) {
+        this.activity = activity;
+    }
+
+    public void showError(Throwable error) {
+        Crouton.makeText(activity, R.string.tError, Style.ALERT).show();
+    }
+
 }

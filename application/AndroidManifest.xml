@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.webcomrades.bankfinder"
-    android:versionCode="2"
-    android:versionName="1.1" >
+          package="com.webcomrades.bankfinder"
+          android:versionCode="2"
+          android:versionName="1.1">
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="17" />
+            android:minSdkVersion="14"
+            android:targetSdkVersion="17"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <instrumentation
-        android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.webcomrades.bankfinder" />
+            android:name="android.test.InstrumentationTestRunner"
+            android:targetPackage="com.webcomrades.bankfinder"/>
 
     <application
-        android:name="com.webcomrades.bankfinder.BankFinder"
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/BankFinderTheme" >
-        <uses-library android:name="android.test.runner" />
+            android:name="com.webcomrades.bankfinder.BankFinder"
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/BankFinderTheme">
+        <uses-library android:name="android.test.runner"/>
 
         <activity
-            android:name="com.webcomrades.bankfinder.activity.ListActivity"
-            android:label="@string/app_name" >
+                android:name="com.webcomrades.bankfinder.activity.ListActivity"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.webcomrades.bankfinder.activity.NewActivity"
-            android:label="@string/tBankNew" />
+                android:name="com.webcomrades.bankfinder.activity.NewActivity"
+                android:label="@string/tBankNew"/>
         <activity
-            android:name="com.webcomrades.bankfinder.activity.DetailActivity"
-            android:label="@string/tBankDetail" />
+                android:name="com.webcomrades.bankfinder.activity.DetailActivity"
+                android:label="@string/tBankDetail"/>
     </application>
 
 </manifest>

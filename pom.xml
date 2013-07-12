@@ -54,7 +54,7 @@
         <encoding>UTF-8</encoding>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
-		<android.version>4.2.2.0</android.version>
+		<android.version>4.1.1.4</android.version>
 		<android-test.version>4.1.1.4</android-test.version>
 		<android.platform>17</android.platform>
 		<android-maven.version>3.6.0</android-maven.version>
@@ -70,7 +70,7 @@
         <acra.version>4.4.0</acra.version>
         <crouton.version>1.7</crouton.version>
         <analytics.version>2.0</analytics.version>
-        <supportlib.version>r13</supportlib.version>
+        <supportlib.version>r7</supportlib.version>
 		<github.downloads.repositoryOwner>josomers</github.downloads.repositoryOwner>
 		<github.downloads.repositoryName>android-bank-finder</github.downloads.repositoryName>
 	</properties>
@@ -139,11 +139,6 @@
 				<groupId>de.keyboardsurfer.android.widget</groupId>
 				<artifactId>crouton</artifactId>
 				<version>${crouton.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.android</groupId>
-				<artifactId>analytics</artifactId>
-				<version>${analytics.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.android</groupId>

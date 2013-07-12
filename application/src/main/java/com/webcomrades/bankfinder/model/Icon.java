@@ -7,24 +7,24 @@ package com.webcomrades.bankfinder.model;
 
 public class Icon {
 
-	private String url;
-	private String fileName;
+    private String url;
+    private String fileName;
 
-	public Icon() {
+    public Icon() {
 
-	}
+    }
 
-	public Icon(String url, String fileName) {
-		this.url = url;
-		this.fileName = fileName;
-	}
-	
-	public String getUrl() {
-		return url;
-	}
-	
-	public String getFileName() {
-		return fileName;
-	}
-	
+    public Icon(String url, String fileName) {
+        this.url = url;
+        this.fileName = fileName;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
 }

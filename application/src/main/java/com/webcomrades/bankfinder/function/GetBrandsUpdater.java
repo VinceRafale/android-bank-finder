@@ -1,13 +1,13 @@
 package com.webcomrades.bankfinder.function;
 
-import java.util.List;
-
 import android.content.Context;
 import android.os.AsyncTask;
 
 import com.google.common.collect.Lists;
 import com.webcomrades.bankfinder.BankFinder;
 import com.webcomrades.bankfinder.model.Brand;
+
+import java.util.List;
 
 /**
  * @author Jo Somers - sayhello@josomers.be
@@ -16,15 +16,15 @@ import com.webcomrades.bankfinder.model.Brand;
 
 public enum GetBrandsUpdater {
 
-	F;
-	
-	public void apply(final Context context) {
+    F;
+
+    public void apply(final Context context) {
         new AsyncTask<Void, Void, List<Brand>>() {
             private Exception exception = null;
 
             @Override
             protected List<Brand> doInBackground(Void... params) {
-            	List<Brand> brands = Lists.newArrayList();
+                List<Brand> brands = Lists.newArrayList();
 
                 try {
                     brands = BankFinder.getNetworkController().getBrands();
@@ -38,12 +38,12 @@ public enum GetBrandsUpdater {
             @Override
             protected void onPostExecute(List<Brand> brands) {
                 if (exception != null) {
-                	BankFinder.getErrorHandler().handleError(exception);
+                    BankFinder.getErrorHandler().handleError(exception);
                 } else {
-                	BankFinder.getBrandsManager().setBrands(brands);
-                	BrandsInSharedPreferences.F.store(context, Lists.newArrayList(brands));
+                    BankFinder.getBrandsManager().setBrands(brands);
+                    BrandsInSharedPreferences.F.store(context, Lists.newArrayList(brands));
                 }
             }
         }.execute();
-	}
+    }
 }
