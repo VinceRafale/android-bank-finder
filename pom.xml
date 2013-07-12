@@ -56,7 +56,7 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<android.version>4.1.1.4</android.version>
 		<android-test.version>4.1.1.4</android-test.version>
-		<android.platform>17</android.platform>
+		<android.platform>16</android.platform>
 		<android-maven.version>3.6.0</android-maven.version>
         <maven-source-plugin.version>2.2</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.8</maven-javadoc-plugin.version>
