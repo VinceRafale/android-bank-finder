@@ -18,7 +18,7 @@ before_install:
     - android update sdk --filter platform-tools,android-16 --no-ui --force
 
 install:
-    - "mvn package --quiet -DskipTests"
+    - "mvn clean install"
     - "mvn verify"
 
 script: echo Tests skipped
