@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.webcomrades.bankfinder.BankFinderGlobals;
 import com.webcomrades.bankfinder.R;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -17,6 +19,19 @@ public abstract class BankFinderActivity extends Activity {
 
     protected MenuItem menuLoader;
     protected boolean showRefreshing = false;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (BankFinderGlobals.inProductionMode()) EasyTracker.getInstance().activityStart(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (BankFinderGlobals.inProductionMode()) EasyTracker.getInstance().activityStop(this);
+    }
+
 
     @Override
     protected void onDestroy() {

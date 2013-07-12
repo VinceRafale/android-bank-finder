@@ -75,7 +75,7 @@
         <acra.version>4.4.0</acra.version>
         <crouton.version>1.7</crouton.version>
         <analytics.version>2.0</analytics.version>
-        <supportlib.version>r7</supportlib.version>
+        <supportlib.version>r13</supportlib.version>
 
 		<github.downloads.repositoryOwner>josomers</github.downloads.repositoryOwner>
 		<github.downloads.repositoryName>android-bank-finder</github.downloads.repositoryName>
@@ -151,7 +151,12 @@
 				<artifactId>support-v4</artifactId>
 				<version>${supportlib.version}</version>
 			</dependency>
-		</dependencies>
+            <dependency>
+                <groupId>com.google.android</groupId>
+                <artifactId>analytics</artifactId>
+                <version>${analytics.version}</version>
+            </dependency>
+        </dependencies>
 	</dependencyManagement>
 
 	<build>

@@ -66,6 +66,10 @@
             <groupId>de.keyboardsurfer.android.widget</groupId>
             <artifactId>crouton</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>analytics</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
