@@ -12,8 +12,9 @@ import com.webimageloader.ext.ImageHelper;
 import java.io.File;
 
 /**
- * @author Jo Somers - sayhello@josomers.be
- * @since 2013
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
  */
 
 public class ImageViewController {

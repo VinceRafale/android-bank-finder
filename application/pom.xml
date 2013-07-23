@@ -20,7 +20,7 @@
             <artifactId>junit</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.pivotallabs</groupId>
+            <groupId>org.robolectric</groupId>
             <artifactId>robolectric</artifactId>
         </dependency>
         <dependency>
@@ -67,6 +67,15 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>analytics</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.dagger</groupId>
+            <artifactId>dagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.dagger</groupId>
+            <artifactId>dagger-compiler</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

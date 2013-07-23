@@ -7,11 +7,11 @@ import com.webcomrades.bankfinder.controller.DataController;
 import com.webcomrades.bankfinder.model.Bank;
 import com.webcomrades.bankfinder.model.Brand;
 import com.webcomrades.bankfinder.test.datafetcher.FileDataFetcher;
-import com.xtremelabs.robolectric.Robolectric;
-import com.xtremelabs.robolectric.RobolectricTestRunner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
+import org.robolectric.RobolectricTestRunner;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,8 +20,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * @author Jo Somers - sayhello@josomers.be
- * @since 2013
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
  */
 
 @RunWith(RobolectricTestRunner.class)

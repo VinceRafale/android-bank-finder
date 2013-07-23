@@ -18,8 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Jo Somers - sayhello@josomers.be
- * @since 2013
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
  */
 
 public class BankAdapter extends BaseAdapter {
@@ -27,7 +28,6 @@ public class BankAdapter extends BaseAdapter {
     private final Context context;
     private final ImageViewController imageViewController;
     private List<Bank> banks;
-    private ViewHolder viewHolder;
 
     public BankAdapter(Context context, ImageViewController imageViewController) {
         this.context = context;
@@ -74,6 +74,7 @@ public class BankAdapter extends BaseAdapter {
         final Brand brand = bank.getBrand();
         final int viewType = getItemViewType(position);
 
+        ViewHolder viewHolder;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_list_item, null);
             viewHolder = new ViewHolder();
