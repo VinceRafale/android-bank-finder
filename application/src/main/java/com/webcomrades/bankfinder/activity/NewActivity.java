@@ -25,6 +25,12 @@ import java.util.List;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
+/**
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
+ */
+
 public class NewActivity extends BankFinderActivity {
 
     private Bank newBank;

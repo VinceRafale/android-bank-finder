@@ -2,11 +2,14 @@ package com.webcomrades.bankfinder.controller;
 
 import android.app.Activity;
 
+import com.webcomrades.bankfinder.BankFinder;
+
 import org.acra.ACRA;
 
 /**
- * @author Jo Somers - sayhello@josomers.be
- * @since 2013
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
  */
 
 public class ErrorHandler {
@@ -23,7 +26,10 @@ public class ErrorHandler {
     }
 
     public void handleError(Throwable throwable) {
-        ACRA.getErrorReporter().handleException(throwable);
+        if (BankFinder.hasSuccesFullAcraInstance()) {
+            ACRA.getErrorReporter().handleException(throwable);
+        }
+
         if (!inProductionMode) {
             throwable.printStackTrace();
         }

@@ -8,8 +8,9 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 /**
- * @author Jo Somers - sayhello@josomers.be
- * @since 2013
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
  */
 
 public class ErrorDisplayManager {

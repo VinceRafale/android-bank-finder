@@ -25,27 +25,25 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * @author Jo Somers - sayhello@josomers.be
- * @since 2013
+ * User: josomers
+ * Date: 10/06/13
+ * Time: 14:10
  */
 
-@ReportsCrashes(formKey = BankFinderGlobals.ACRA_KEY,
-        customReportContent = {ReportField.APP_VERSION_CODE, ReportField.APP_VERSION_NAME,
-                ReportField.ANDROID_VERSION, ReportField.BRAND, ReportField.PHONE_MODEL, ReportField.PRODUCT,
-                ReportField.STACK_TRACE, ReportField.DISPLAY, ReportField.INITIAL_CONFIGURATION, ReportField.USER_CRASH_DATE},
-        mode = ReportingInteractionMode.SILENT)
+@ReportsCrashes(formKey = "")
 public class BankFinder extends Application {
 
     private static ImageViewController imageViewController;
     private static BrandManager brandsManager;
     private static DataController networkController;
     private static ErrorHandler errorHandler;
+    private static boolean hasSuccesFullAcraInstance = true;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        ACRA.init(this);
+        initAcra();
 
         imageViewController = new ImageViewController(getApplicationContext(), BankFinderGlobals.HTTP + BankFinderGlobals.getBaseUrl());
         brandsManager = new BrandManager(getBrandsFromSettings());
@@ -54,6 +52,20 @@ public class BankFinder extends Application {
 
         saveVersionCode();
         getBrandsFromServer();
+    }
+
+    private void initAcra() {
+        try {
+            ACRA.getConfig().setFormKey(BankFinderGlobals.ACRA_KEY);
+            ACRA.getConfig().setCustomReportContent(new ReportField[]{ReportField.APP_VERSION_CODE, ReportField.APP_VERSION_NAME,
+                    ReportField.ANDROID_VERSION, ReportField.BRAND, ReportField.PHONE_MODEL, ReportField.PRODUCT,
+                    ReportField.STACK_TRACE, ReportField.DISPLAY, ReportField.INITIAL_CONFIGURATION, ReportField.USER_CRASH_DATE, ReportField.CUSTOM_DATA});
+            ACRA.getConfig().setMode(ReportingInteractionMode.SILENT);
+            ACRA.init(this);
+        } catch (Exception e) {
+            hasSuccesFullAcraInstance = false;
+            //  there's a small (nullpointer) exception that occurs with some application instances. just catch them, we can't report it to our systems.
+        }
     }
 
     private static String getBaseUrl() {
@@ -85,6 +97,10 @@ public class BankFinder extends Application {
         } catch (NameNotFoundException e) {
             errorHandler.handleError(e);
         }
+    }
+
+    public static boolean hasSuccesFullAcraInstance() {
+        return hasSuccesFullAcraInstance;
     }
 
     public static ImageViewController getImageViewController() {
